@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbModupModelStoreContainer" CdmEntityContainer="dbModupEntities">
+    <EntitySetMapping Name="tbAnswers">
+      <EntityTypeMapping TypeName="dbModupModel.tbAnswer">
+        <MappingFragment StoreEntitySet="tbAnswers">
+          <ScalarProperty Name="ansID" ColumnName="ansID" />
+          <ScalarProperty Name="qID" ColumnName="qID" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="isCorrect" ColumnName="isCorrect" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbAwardedModules">
+      <EntityTypeMapping TypeName="dbModupModel.tbAwardedModule">
+        <MappingFragment StoreEntitySet="tbAwardedModules">
+          <ScalarProperty Name="devID" ColumnName="devID" />
+          <ScalarProperty Name="modID" ColumnName="modID" />
+          <ScalarProperty Name="propID" ColumnName="propID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbAwardedProjs">
+      <EntityTypeMapping TypeName="dbModupModel.tbAwardedProj">
+        <MappingFragment StoreEntitySet="tbAwardedProj">
+          <ScalarProperty Name="prjpropID" ColumnName="prjpropID" />
+          <ScalarProperty Name="projID" ColumnName="projID" />
+          <ScalarProperty Name="raID" ColumnName="raID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbClients">
+      <EntityTypeMapping TypeName="dbModupModel.tbClient">
+        <MappingFragment StoreEntitySet="tbClient">
+          <ScalarProperty Name="completedTasks" ColumnName="completedTasks" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="awardedProjects" ColumnName="awardedProjects" />
+          <ScalarProperty Name="totalEarning" ColumnName="totalEarning" />
+          <ScalarProperty Name="tagLine" ColumnName="tagLine" />
+          <ScalarProperty Name="overview" ColumnName="overview" />
+          <ScalarProperty Name="isProfileComplete" ColumnName="isProfileComplete" />
+          <ScalarProperty Name="actionCont" ColumnName="actionCont" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbDevelopers">
+      <EntityTypeMapping TypeName="dbModupModel.tbDeveloper">
+        <MappingFragment StoreEntitySet="tbDeveloper">
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="devID" ColumnName="devID" />
+          <ScalarProperty Name="affiliation" ColumnName="affiliation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEducations">
+      <EntityTypeMapping TypeName="dbModupModel.tbEducation">
+        <MappingFragment StoreEntitySet="tbEducation">
+          <ScalarProperty Name="eduID" ColumnName="eduID" />
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="degree" ColumnName="degree" />
+          <ScalarProperty Name="institute" ColumnName="institute" />
+          <ScalarProperty Name="year" ColumnName="year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEvaluations">
+      <EntityTypeMapping TypeName="dbModupModel.tbEvaluation">
+        <MappingFragment StoreEntitySet="tbEvaluation">
+          <ScalarProperty Name="evalID" ColumnName="evalID" />
+          <ScalarProperty Name="devID" ColumnName="devID" />
+          <ScalarProperty Name="skill" ColumnName="skill" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="score" ColumnName="score" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbExperiences">
+      <EntityTypeMapping TypeName="dbModupModel.tbExperience">
+        <MappingFragment StoreEntitySet="tbExperiences">
+          <ScalarProperty Name="expID" ColumnName="expID" />
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="workedAs" ColumnName="workedAs" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="startingYear" ColumnName="startingYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbModules">
+      <EntityTypeMapping TypeName="dbModupModel.tbModule">
+        <MappingFragment StoreEntitySet="tbModules">
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="modID" ColumnName="modID" />
+          <ScalarProperty Name="projID" ColumnName="projID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="budget" ColumnName="budget" />
+          <ScalarProperty Name="closeDate" ColumnName="closeDate" />
+          <ScalarProperty Name="devSkillLevel" ColumnName="devSkillLevel" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="devType" ColumnName="devType" />
+          <ScalarProperty Name="skillReq" ColumnName="skillReq" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPMs">
+      <EntityTypeMapping TypeName="dbModupModel.tbPM">
+        <MappingFragment StoreEntitySet="tbPM">
+          <ScalarProperty Name="pmID" ColumnName="pmID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="totalSpending" ColumnName="totalSpending" />
+          <ScalarProperty Name="awardedProj" ColumnName="awardedProj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPortfolios">
+      <EntityTypeMapping TypeName="dbModupModel.tbPortfolio">
+        <MappingFragment StoreEntitySet="tbPortfolio">
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="portfolioID" ColumnName="portfolioID" />
+          <ScalarProperty Name="devID" ColumnName="devID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProjects">
+      <EntityTypeMapping TypeName="dbModupModel.tbProject">
+        <MappingFragment StoreEntitySet="tbProject">
+          <ScalarProperty Name="technology" ColumnName="technology" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="estimatedAmt" ColumnName="estimatedAmt" />
+          <ScalarProperty Name="projID" ColumnName="projID" />
+          <ScalarProperty Name="pmID" ColumnName="pmID" />
+          <ScalarProperty Name="moduleNo" ColumnName="moduleNo" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="postDate" ColumnName="postDate" />
+          <ScalarProperty Name="closeDate" ColumnName="closeDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProjProposals">
+      <EntityTypeMapping TypeName="dbModupModel.tbProjProposal">
+        <MappingFragment StoreEntitySet="tbProjProposals">
+          <ScalarProperty Name="prjpropID" ColumnName="prjpropID" />
+          <ScalarProperty Name="raID" ColumnName="raID" />
+          <ScalarProperty Name="projID" ColumnName="projID" />
+          <ScalarProperty Name="bidAmt" ColumnName="bidAmt" />
+          <ScalarProperty Name="coverLetter" ColumnName="coverLetter" />
+          <ScalarProperty Name="estCompletion" ColumnName="estCompletion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProposals">
+      <EntityTypeMapping TypeName="dbModupModel.tbProposal">
+        <MappingFragment StoreEntitySet="tbProposals">
+          <ScalarProperty Name="propID" ColumnName="propID" />
+          <ScalarProperty Name="devID" ColumnName="devID" />
+          <ScalarProperty Name="modID" ColumnName="modID" />
+          <ScalarProperty Name="covLetter" ColumnName="covLetter" />
+          <ScalarProperty Name="hourlyRate" ColumnName="hourlyRate" />
+          <ScalarProperty Name="estCompletion" ColumnName="estCompletion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbQualityAssurances">
+      <EntityTypeMapping TypeName="dbModupModel.tbQualityAssurance">
+        <MappingFragment StoreEntitySet="tbQualityAssurance">
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="qaID" ColumnName="qaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbQuestions">
+      <EntityTypeMapping TypeName="dbModupModel.tbQuestion">
+        <MappingFragment StoreEntitySet="tbQuestions">
+          <ScalarProperty Name="qID" ColumnName="qID" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="skill" ColumnName="skill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbRequirementEngineers">
+      <EntityTypeMapping TypeName="dbModupModel.tbRequirementEngineer">
+        <MappingFragment StoreEntitySet="tbRequirementEngineer">
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="raID" ColumnName="raID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbSkills">
+      <EntityTypeMapping TypeName="dbModupModel.tbSkill">
+        <MappingFragment StoreEntitySet="tbSkills">
+          <ScalarProperty Name="skillID" ColumnName="skillID" />
+          <ScalarProperty Name="devID" ColumnName="devID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="skillLevel" ColumnName="skillLevel" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="hourlyRate" ColumnName="hourlyRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbUsers">
+      <EntityTypeMapping TypeName="dbModupModel.tbUser">
+        <MappingFragment StoreEntitySet="tbUser">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+          <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+          <ScalarProperty Name="accountType" ColumnName="accountType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbUserCredentials">
+      <EntityTypeMapping TypeName="dbModupModel.tbUserCredential">
+        <MappingFragment StoreEntitySet="tbUserCredentials">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="secretQ" ColumnName="secretQ" />
+          <ScalarProperty Name="secretA" ColumnName="secretA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tbEvalQuestions" TypeName="dbModupModel.tbEvalQuestions" StoreEntitySet="tbEvalQuestions">
+      <EndProperty Name="tbEvaluation">
+        <ScalarProperty Name="evalID" ColumnName="evalID" />
+      </EndProperty>
+      <EndProperty Name="tbQuestions">
+        <ScalarProperty Name="qID" ColumnName="qID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="tbMessages">
+      <EntityTypeMapping TypeName="dbModupModel.tbMessage">
+        <MappingFragment StoreEntitySet="tbMessages">
+          <ScalarProperty Name="attachment" ColumnName="attachment" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="mto" ColumnName="mto" />
+          <ScalarProperty Name="mfrom" ColumnName="mfrom" />
+          <ScalarProperty Name="wrID" ColumnName="wrID" />
+          <ScalarProperty Name="mID" ColumnName="mID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProjWorkrooms">
+      <EntityTypeMapping TypeName="dbModupModel.tbProjWorkroom">
+        <MappingFragment StoreEntitySet="tbProjWorkroom">
+          <ScalarProperty Name="projID" ColumnName="projID" />
+          <ScalarProperty Name="wrID" ColumnName="wrID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbSubModules">
+      <EntityTypeMapping TypeName="dbModupModel.tbSubModule">
+        <MappingFragment StoreEntitySet="tbSubModules">
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="skillReq" ColumnName="skillReq" />
+          <ScalarProperty Name="devType" ColumnName="devType" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="devSkillLevel" ColumnName="devSkillLevel" />
+          <ScalarProperty Name="closeDate" ColumnName="closeDate" />
+          <ScalarProperty Name="budget" ColumnName="budget" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="modID" ColumnName="modID" />
+          <ScalarProperty Name="submodID" ColumnName="submodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbModMessages">
+      <EntityTypeMapping TypeName="dbModupModel.tbModMessage">
+        <MappingFragment StoreEntitySet="tbModMessages">
+          <ScalarProperty Name="attachment" ColumnName="attachment" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="mto" ColumnName="mto" />
+          <ScalarProperty Name="mfrom" ColumnName="mfrom" />
+          <ScalarProperty Name="wrID" ColumnName="wrID" />
+          <ScalarProperty Name="mID" ColumnName="mID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbModuleWorkrooms">
+      <EntityTypeMapping TypeName="dbModupModel.tbModuleWorkroom">
+        <MappingFragment StoreEntitySet="tbModuleWorkroom">
+          <ScalarProperty Name="modID" ColumnName="modID" />
+          <ScalarProperty Name="wrID" ColumnName="wrID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbModCheckpoints">
+      <EntityTypeMapping TypeName="dbModupModel.tbModCheckpoint">
+        <MappingFragment StoreEntitySet="tbModCheckpoints">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="end" ColumnName="end" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dueDate" ColumnName="dueDate" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="wrID" ColumnName="wrID" />
+          <ScalarProperty Name="chkID" ColumnName="chkID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCheckpointReqs">
+      <EntityTypeMapping TypeName="dbModupModel.tbCheckpointReq">
+        <MappingFragment StoreEntitySet="tbCheckpointReqs">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="files" ColumnName="files" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="chkID" ColumnName="chkID" />
+          <ScalarProperty Name="reqID" ColumnName="reqID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbModRequests">
+      <EntityTypeMapping TypeName="dbModupModel.tbModRequest">
+        <MappingFragment StoreEntitySet="tbModRequests">
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="wrID" ColumnName="wrID" />
+          <ScalarProperty Name="reqID" ColumnName="reqID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbModWorkroomFiles">
+      <EntityTypeMapping TypeName="dbModupModel.tbModWorkroomFile">
+        <MappingFragment StoreEntitySet="tbModWorkroomFiles">
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="uploadedBy" ColumnName="uploadedBy" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="wrID" ColumnName="wrID" />
+          <ScalarProperty Name="fileID" ColumnName="fileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProjWorkroomFiles">
+      <EntityTypeMapping TypeName="dbModupModel.tbProjWorkroomFile">
+        <MappingFragment StoreEntitySet="tbProjWorkroomFiles">
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="uploadedBy" ColumnName="uploadedBy" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="wrID" ColumnName="wrID" />
+          <ScalarProperty Name="fileID" ColumnName="fileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

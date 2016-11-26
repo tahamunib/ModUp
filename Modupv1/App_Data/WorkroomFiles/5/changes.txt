@@ -1,0 +1,13 @@
+
+- In the combo type, do not allow entry
+- Swag type do not allow entry
+- Hardware color should be a drop down for them to choose colors
+- Projection should be a drop down
+- Lining: should be called pattern and color
+- Swag gathering and take up is not need it to show it is automatic field
+- Swag pocket: refer to the chart
+- Swag hem size refer to chart
+- Exit button is not working
+- When restored, we want the data to be restored so that we don’t have to start again
+- we have changed the positions of the columns and this is the way we like to print them please change to as shown
+- The form must be much, much larger so we can clearly see like the initial sample proposed.

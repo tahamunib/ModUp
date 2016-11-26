@@ -1,0 +1,965 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModupModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbAnswers">
+    <Key>
+      <PropertyRef Name="ansID" />
+    </Key>
+    <Property Name="ansID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="qID" Type="int" />
+    <Property Name="answer" Type="nvarchar" MaxLength="100" />
+    <Property Name="isCorrect" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbAwardedModules">
+    <Key>
+      <PropertyRef Name="modID" />
+    </Key>
+    <Property Name="devID" Type="int" Nullable="false" />
+    <Property Name="modID" Type="int" Nullable="false" />
+    <Property Name="propID" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbAwardedProj">
+    <Key>
+      <PropertyRef Name="projID" />
+    </Key>
+    <Property Name="projID" Type="int" Nullable="false" />
+    <Property Name="raID" Type="int" Nullable="false" />
+    <Property Name="prjpropID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbCheckpointReqs">
+    <Key>
+      <PropertyRef Name="reqID" />
+      <PropertyRef Name="chkID" />
+    </Key>
+    <Property Name="reqID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="chkID" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date" Type="nvarchar" MaxLength="50" />
+    <Property Name="files" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbClient">
+    <Key>
+      <PropertyRef Name="clientID" />
+    </Key>
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="clientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="awardedProjects" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalEarning" Type="nvarchar" MaxLength="50" />
+    <Property Name="tagLine" Type="nvarchar" MaxLength="50" />
+    <Property Name="overview" Type="nvarchar" MaxLength="800" />
+    <Property Name="isProfileComplete" Type="nvarchar" MaxLength="50" />
+    <Property Name="actionCont" Type="nvarchar" MaxLength="50" />
+    <Property Name="completedTasks" Type="int" />
+  </EntityType>
+  <EntityType Name="tbDeveloper">
+    <Key>
+      <PropertyRef Name="devID" />
+    </Key>
+    <Property Name="clientID" Type="int" Nullable="false" />
+    <Property Name="devID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="affiliation" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbEducation">
+    <Key>
+      <PropertyRef Name="eduID" />
+    </Key>
+    <Property Name="eduID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clientID" Type="int" Nullable="false" />
+    <Property Name="degree" Type="nvarchar" MaxLength="50" />
+    <Property Name="institute" Type="nvarchar" MaxLength="50" />
+    <Property Name="year" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbEvalQuestions">
+    <Key>
+      <PropertyRef Name="evalID" />
+      <PropertyRef Name="qID" />
+    </Key>
+    <Property Name="evalID" Type="int" Nullable="false" />
+    <Property Name="qID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbEvaluation">
+    <Key>
+      <PropertyRef Name="evalID" />
+    </Key>
+    <Property Name="evalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="devID" Type="int" Nullable="false" />
+    <Property Name="skill" Type="nvarchar" MaxLength="50" />
+    <Property Name="date" Type="nvarchar" MaxLength="50" />
+    <Property Name="result" Type="nvarchar" MaxLength="50" />
+    <Property Name="score" Type="float" />
+  </EntityType>
+  <EntityType Name="tbExperiences">
+    <Key>
+      <PropertyRef Name="expID" />
+    </Key>
+    <Property Name="expID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clientID" Type="int" Nullable="false" />
+    <Property Name="workedAs" Type="nvarchar" MaxLength="50" />
+    <Property Name="company" Type="nvarchar" MaxLength="50" />
+    <Property Name="duration" Type="nvarchar" MaxLength="50" />
+    <Property Name="startingYear" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbMessages">
+    <Key>
+      <PropertyRef Name="mID" />
+    </Key>
+    <Property Name="mID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wrID" Type="int" Nullable="false" />
+    <Property Name="mfrom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="mto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="text" Type="varchar(max)" />
+    <Property Name="dateTime" Type="nvarchar" MaxLength="80" />
+    <Property Name="attachment" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbModCheckpoints">
+    <Key>
+      <PropertyRef Name="chkID" />
+    </Key>
+    <Property Name="chkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wrID" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="dueDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="end" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbModMessages">
+    <Key>
+      <PropertyRef Name="mID" />
+    </Key>
+    <Property Name="mID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wrID" Type="int" Nullable="false" />
+    <Property Name="mfrom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="mto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="text" Type="varchar(max)" />
+    <Property Name="dateTime" Type="nvarchar" MaxLength="80" />
+    <Property Name="attachment" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbModRequests">
+    <Key>
+      <PropertyRef Name="reqID" />
+      <PropertyRef Name="wrID" />
+    </Key>
+    <Property Name="reqID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wrID" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="date" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="filename" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbModules">
+    <Key>
+      <PropertyRef Name="modID" />
+    </Key>
+    <Property Name="modID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projID" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="budget" Type="int" />
+    <Property Name="closeDate" Type="date" />
+    <Property Name="devSkillLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="category" Type="nvarchar" MaxLength="50" />
+    <Property Name="devType" Type="nvarchar" MaxLength="50" />
+    <Property Name="skillReq" Type="nvarchar" MaxLength="50" />
+    <Property Name="filename" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbModuleWorkroom">
+    <Key>
+      <PropertyRef Name="wrID" />
+    </Key>
+    <Property Name="wrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbModWorkroomFiles">
+    <Key>
+      <PropertyRef Name="fileID" />
+    </Key>
+    <Property Name="fileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wrID" Type="int" Nullable="false" />
+    <Property Name="filename" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="date" Type="nvarchar" MaxLength="50" />
+    <Property Name="uploadedBy" Type="varchar" MaxLength="50" />
+    <Property Name="size" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbPM">
+    <Key>
+      <PropertyRef Name="pmID" />
+    </Key>
+    <Property Name="pmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="totalSpending" Type="nvarchar" MaxLength="50" />
+    <Property Name="awardedProj" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbPortfolio">
+    <Key>
+      <PropertyRef Name="portfolioID" />
+    </Key>
+    <Property Name="portfolioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="devID" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="500" />
+    <Property Name="imageURL" Type="nvarchar(max)" />
+    <Property Name="url" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbProject">
+    <Key>
+      <PropertyRef Name="projID" />
+    </Key>
+    <Property Name="projID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pmID" Type="int" Nullable="false" />
+    <Property Name="moduleNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="postDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="closeDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="estimatedAmt" Type="int" />
+    <Property Name="fileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="technology" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbProjProposals">
+    <Key>
+      <PropertyRef Name="prjpropID" />
+    </Key>
+    <Property Name="prjpropID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="raID" Type="int" Nullable="false" />
+    <Property Name="projID" Type="int" Nullable="false" />
+    <Property Name="bidAmt" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="coverLetter" Type="nvarchar" MaxLength="800" />
+    <Property Name="estCompletion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbProjWorkroom">
+    <Key>
+      <PropertyRef Name="wrID" />
+    </Key>
+    <Property Name="wrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbProjWorkroomFiles">
+    <Key>
+      <PropertyRef Name="fileID" />
+    </Key>
+    <Property Name="fileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wrID" Type="int" Nullable="false" />
+    <Property Name="filename" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="date" Type="nvarchar" MaxLength="50" />
+    <Property Name="uploadedBy" Type="varchar" MaxLength="50" />
+    <Property Name="size" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbProposals">
+    <Key>
+      <PropertyRef Name="propID" />
+    </Key>
+    <Property Name="propID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="devID" Type="int" Nullable="false" />
+    <Property Name="modID" Type="int" Nullable="false" />
+    <Property Name="covLetter" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="hourlyRate" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="estCompletion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbQualityAssurance">
+    <Key>
+      <PropertyRef Name="qaID" />
+    </Key>
+    <Property Name="clientID" Type="int" Nullable="false" />
+    <Property Name="qaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbQuestions">
+    <Key>
+      <PropertyRef Name="qID" />
+    </Key>
+    <Property Name="qID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="question" Type="text" />
+    <Property Name="skill" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbRequirementEngineer">
+    <Key>
+      <PropertyRef Name="raID" />
+    </Key>
+    <Property Name="clientID" Type="int" Nullable="false" />
+    <Property Name="raID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbSkills">
+    <Key>
+      <PropertyRef Name="skillID" />
+    </Key>
+    <Property Name="skillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="devID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="skillLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="hourlyRate" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbSubModules">
+    <Key>
+      <PropertyRef Name="submodID" />
+    </Key>
+    <Property Name="submodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modID" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="budget" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="closeDate" Type="date" Nullable="false" />
+    <Property Name="devSkillLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="category" Type="nvarchar" MaxLength="50" />
+    <Property Name="devType" Type="nvarchar" MaxLength="50" />
+    <Property Name="skillReq" Type="nvarchar" MaxLength="50" />
+    <Property Name="filename" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbUser">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" />
+    <Property Name="country" Type="nvarchar" MaxLength="50" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="postalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="contactNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="accountType" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbUserCredentials">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="secretQ" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="secretA" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbAnswers_tbQuestions">
+    <End Role="tbQuestions" Type="Self.tbQuestions" Multiplicity="0..1" />
+    <End Role="tbAnswers" Type="Self.tbAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbQuestions">
+        <PropertyRef Name="qID" />
+      </Principal>
+      <Dependent Role="tbAnswers">
+        <PropertyRef Name="qID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAwardedModules_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbAwardedModules" Type="Self.tbAwardedModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbAwardedModules">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAwardedModules_tbModules">
+    <End Role="tbModules" Type="Self.tbModules" Multiplicity="1" />
+    <End Role="tbAwardedModules" Type="Self.tbAwardedModules" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbModules">
+        <PropertyRef Name="modID" />
+      </Principal>
+      <Dependent Role="tbAwardedModules">
+        <PropertyRef Name="modID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAwardedModules_tbProposals">
+    <End Role="tbProposals" Type="Self.tbProposals" Multiplicity="1" />
+    <End Role="tbAwardedModules" Type="Self.tbAwardedModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProposals">
+        <PropertyRef Name="propID" />
+      </Principal>
+      <Dependent Role="tbAwardedModules">
+        <PropertyRef Name="propID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAwardedProj_tbProject">
+    <End Role="tbProject" Type="Self.tbProject" Multiplicity="1" />
+    <End Role="tbAwardedProj" Type="Self.tbAwardedProj" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbProject">
+        <PropertyRef Name="projID" />
+      </Principal>
+      <Dependent Role="tbAwardedProj">
+        <PropertyRef Name="projID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAwardedProj_tbProposals">
+    <End Role="tbProjProposals" Type="Self.tbProjProposals" Multiplicity="1" />
+    <End Role="tbAwardedProj" Type="Self.tbAwardedProj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProjProposals">
+        <PropertyRef Name="prjpropID" />
+      </Principal>
+      <Dependent Role="tbAwardedProj">
+        <PropertyRef Name="prjpropID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAwardedProj_tbRequirementEngineer">
+    <End Role="tbRequirementEngineer" Type="Self.tbRequirementEngineer" Multiplicity="1" />
+    <End Role="tbAwardedProj" Type="Self.tbAwardedProj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbRequirementEngineer">
+        <PropertyRef Name="raID" />
+      </Principal>
+      <Dependent Role="tbAwardedProj">
+        <PropertyRef Name="raID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCheckpointReqs_tbModCheckpoints">
+    <End Role="tbModCheckpoints" Type="Self.tbModCheckpoints" Multiplicity="1" />
+    <End Role="tbCheckpointReqs" Type="Self.tbCheckpointReqs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModCheckpoints">
+        <PropertyRef Name="chkID" />
+      </Principal>
+      <Dependent Role="tbCheckpointReqs">
+        <PropertyRef Name="chkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbClient_tbUser">
+    <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbUser">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="tbClient">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbDeveloper_tbClient">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbDeveloper">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbEducation_tbEducation">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbEducation" Type="Self.tbEducation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbEducation">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbEvalQuestions_tbEvaluation">
+    <End Role="tbEvaluation" Type="Self.tbEvaluation" Multiplicity="1" />
+    <End Role="tbEvalQuestions" Type="Self.tbEvalQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEvaluation">
+        <PropertyRef Name="evalID" />
+      </Principal>
+      <Dependent Role="tbEvalQuestions">
+        <PropertyRef Name="evalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbEvalQuestions_tbQuestions">
+    <End Role="tbQuestions" Type="Self.tbQuestions" Multiplicity="1" />
+    <End Role="tbEvalQuestions" Type="Self.tbEvalQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbQuestions">
+        <PropertyRef Name="qID" />
+      </Principal>
+      <Dependent Role="tbEvalQuestions">
+        <PropertyRef Name="qID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbEvaluation_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbEvaluation" Type="Self.tbEvaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbEvaluation">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbExperiences_tbClient">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbExperiences" Type="Self.tbExperiences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbExperiences">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbMessages_tbProjWorkroom">
+    <End Role="tbProjWorkroom" Type="Self.tbProjWorkroom" Multiplicity="1" />
+    <End Role="tbMessages" Type="Self.tbMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProjWorkroom">
+        <PropertyRef Name="wrID" />
+      </Principal>
+      <Dependent Role="tbMessages">
+        <PropertyRef Name="wrID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbModCheckpoints_tbModCheckpoints">
+    <End Role="tbModuleWorkroom" Type="Self.tbModuleWorkroom" Multiplicity="1" />
+    <End Role="tbModCheckpoints" Type="Self.tbModCheckpoints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModuleWorkroom">
+        <PropertyRef Name="wrID" />
+      </Principal>
+      <Dependent Role="tbModCheckpoints">
+        <PropertyRef Name="wrID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbModMessages_tbModuleWorkroom">
+    <End Role="tbModuleWorkroom" Type="Self.tbModuleWorkroom" Multiplicity="1" />
+    <End Role="tbModMessages" Type="Self.tbModMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModuleWorkroom">
+        <PropertyRef Name="wrID" />
+      </Principal>
+      <Dependent Role="tbModMessages">
+        <PropertyRef Name="wrID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbModules_tbProject">
+    <End Role="tbProject" Type="Self.tbProject" Multiplicity="1" />
+    <End Role="tbModules" Type="Self.tbModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProject">
+        <PropertyRef Name="projID" />
+      </Principal>
+      <Dependent Role="tbModules">
+        <PropertyRef Name="projID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbModuleWorkroom_tbAwardedModules">
+    <End Role="tbAwardedModules" Type="Self.tbAwardedModules" Multiplicity="1" />
+    <End Role="tbModuleWorkroom" Type="Self.tbModuleWorkroom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbAwardedModules">
+        <PropertyRef Name="modID" />
+      </Principal>
+      <Dependent Role="tbModuleWorkroom">
+        <PropertyRef Name="modID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbModWorkroomFiles_tbModuleWorkroom">
+    <End Role="tbModuleWorkroom" Type="Self.tbModuleWorkroom" Multiplicity="1" />
+    <End Role="tbModWorkroomFiles" Type="Self.tbModWorkroomFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModuleWorkroom">
+        <PropertyRef Name="wrID" />
+      </Principal>
+      <Dependent Role="tbModWorkroomFiles">
+        <PropertyRef Name="wrID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPM_tbUser">
+    <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
+    <End Role="tbPM" Type="Self.tbPM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbUser">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="tbPM">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPortfolio_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbPortfolio" Type="Self.tbPortfolio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbPortfolio">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProject_tbPM">
+    <End Role="tbPM" Type="Self.tbPM" Multiplicity="1" />
+    <End Role="tbProject" Type="Self.tbProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPM">
+        <PropertyRef Name="pmID" />
+      </Principal>
+      <Dependent Role="tbProject">
+        <PropertyRef Name="pmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProjProposals_tbProject">
+    <End Role="tbProject" Type="Self.tbProject" Multiplicity="1" />
+    <End Role="tbProjProposals" Type="Self.tbProjProposals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProject">
+        <PropertyRef Name="projID" />
+      </Principal>
+      <Dependent Role="tbProjProposals">
+        <PropertyRef Name="projID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProjProposals_tbRequirementEngineer">
+    <End Role="tbRequirementEngineer" Type="Self.tbRequirementEngineer" Multiplicity="1" />
+    <End Role="tbProjProposals" Type="Self.tbProjProposals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbRequirementEngineer">
+        <PropertyRef Name="raID" />
+      </Principal>
+      <Dependent Role="tbProjProposals">
+        <PropertyRef Name="raID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProjWorkroom_tbAwardedProj">
+    <End Role="tbAwardedProj" Type="Self.tbAwardedProj" Multiplicity="1" />
+    <End Role="tbProjWorkroom" Type="Self.tbProjWorkroom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbAwardedProj">
+        <PropertyRef Name="projID" />
+      </Principal>
+      <Dependent Role="tbProjWorkroom">
+        <PropertyRef Name="projID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProjWorkroomFiles_tbProjWorkroom">
+    <End Role="tbProjWorkroom" Type="Self.tbProjWorkroom" Multiplicity="1" />
+    <End Role="tbProjWorkroomFiles" Type="Self.tbProjWorkroomFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProjWorkroom">
+        <PropertyRef Name="wrID" />
+      </Principal>
+      <Dependent Role="tbProjWorkroomFiles">
+        <PropertyRef Name="wrID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProposals_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbProposals" Type="Self.tbProposals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbProposals">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProposals_tbModules">
+    <End Role="tbModules" Type="Self.tbModules" Multiplicity="1" />
+    <End Role="tbProposals" Type="Self.tbProposals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModules">
+        <PropertyRef Name="modID" />
+      </Principal>
+      <Dependent Role="tbProposals">
+        <PropertyRef Name="modID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbQualityAssurance_tbClient">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbQualityAssurance" Type="Self.tbQualityAssurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbQualityAssurance">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbRequests_tbModuleWorkroom">
+    <End Role="tbModuleWorkroom" Type="Self.tbModuleWorkroom" Multiplicity="1" />
+    <End Role="tbModRequests" Type="Self.tbModRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModuleWorkroom">
+        <PropertyRef Name="wrID" />
+      </Principal>
+      <Dependent Role="tbModRequests">
+        <PropertyRef Name="wrID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbRequirementEngineer_tbClient">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbRequirementEngineer" Type="Self.tbRequirementEngineer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbRequirementEngineer">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbSkills_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbSkills" Type="Self.tbSkills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbSkills">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbSubModules_tbModules">
+    <End Role="tbModules" Type="Self.tbModules" Multiplicity="1" />
+    <End Role="tbSubModules" Type="Self.tbSubModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModules">
+        <PropertyRef Name="modID" />
+      </Principal>
+      <Dependent Role="tbSubModules">
+        <PropertyRef Name="modID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbUserCredentials_tbUser">
+    <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
+    <End Role="tbUserCredentials" Type="Self.tbUserCredentials" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbUser">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="tbUserCredentials">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModupModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbAnswers" EntityType="Self.tbAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbAwardedModules" EntityType="Self.tbAwardedModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbAwardedProj" EntityType="Self.tbAwardedProj" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbCheckpointReqs" EntityType="Self.tbCheckpointReqs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbClient" EntityType="Self.tbClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbDeveloper" EntityType="Self.tbDeveloper" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbEducation" EntityType="Self.tbEducation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbEvaluation" EntityType="Self.tbEvaluation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbExperiences" EntityType="Self.tbExperiences" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbMessages" EntityType="Self.tbMessages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModCheckpoints" EntityType="Self.tbModCheckpoints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModMessages" EntityType="Self.tbModMessages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModRequests" EntityType="Self.tbModRequests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModules" EntityType="Self.tbModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModuleWorkroom" EntityType="Self.tbModuleWorkroom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModWorkroomFiles" EntityType="Self.tbModWorkroomFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPM" EntityType="Self.tbPM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPortfolio" EntityType="Self.tbPortfolio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbProject" EntityType="Self.tbProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbProjProposals" EntityType="Self.tbProjProposals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbProjWorkroom" EntityType="Self.tbProjWorkroom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbProjWorkroomFiles" EntityType="Self.tbProjWorkroomFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbProposals" EntityType="Self.tbProposals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbQualityAssurance" EntityType="Self.tbQualityAssurance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbQuestions" EntityType="Self.tbQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbRequirementEngineer" EntityType="Self.tbRequirementEngineer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbSkills" EntityType="Self.tbSkills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbSubModules" EntityType="Self.tbSubModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbUser" EntityType="Self.tbUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbUserCredentials" EntityType="Self.tbUserCredentials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbEvalQuestions" EntityType="Self.tbEvalQuestions" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbEvalQuestions].[evalID] AS [evalID], 
+    [tbEvalQuestions].[qID] AS [qID]
+    FROM [dbo].[tbEvalQuestions] AS [tbEvalQuestions]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tbAnswers_tbQuestions" Association="Self.FK_tbAnswers_tbQuestions">
+      <End Role="tbQuestions" EntitySet="tbQuestions" />
+      <End Role="tbAnswers" EntitySet="tbAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAwardedModules_tbDeveloper" Association="Self.FK_tbAwardedModules_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDeveloper" />
+      <End Role="tbAwardedModules" EntitySet="tbAwardedModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAwardedModules_tbModules" Association="Self.FK_tbAwardedModules_tbModules">
+      <End Role="tbModules" EntitySet="tbModules" />
+      <End Role="tbAwardedModules" EntitySet="tbAwardedModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAwardedModules_tbProposals" Association="Self.FK_tbAwardedModules_tbProposals">
+      <End Role="tbProposals" EntitySet="tbProposals" />
+      <End Role="tbAwardedModules" EntitySet="tbAwardedModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAwardedProj_tbProject" Association="Self.FK_tbAwardedProj_tbProject">
+      <End Role="tbProject" EntitySet="tbProject" />
+      <End Role="tbAwardedProj" EntitySet="tbAwardedProj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAwardedProj_tbProposals" Association="Self.FK_tbAwardedProj_tbProposals">
+      <End Role="tbProjProposals" EntitySet="tbProjProposals" />
+      <End Role="tbAwardedProj" EntitySet="tbAwardedProj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAwardedProj_tbRequirementEngineer" Association="Self.FK_tbAwardedProj_tbRequirementEngineer">
+      <End Role="tbRequirementEngineer" EntitySet="tbRequirementEngineer" />
+      <End Role="tbAwardedProj" EntitySet="tbAwardedProj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCheckpointReqs_tbModCheckpoints" Association="Self.FK_tbCheckpointReqs_tbModCheckpoints">
+      <End Role="tbModCheckpoints" EntitySet="tbModCheckpoints" />
+      <End Role="tbCheckpointReqs" EntitySet="tbCheckpointReqs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbClient_tbUser" Association="Self.FK_tbClient_tbUser">
+      <End Role="tbUser" EntitySet="tbUser" />
+      <End Role="tbClient" EntitySet="tbClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbDeveloper_tbClient" Association="Self.FK_tbDeveloper_tbClient">
+      <End Role="tbClient" EntitySet="tbClient" />
+      <End Role="tbDeveloper" EntitySet="tbDeveloper" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbEducation_tbEducation" Association="Self.FK_tbEducation_tbEducation">
+      <End Role="tbClient" EntitySet="tbClient" />
+      <End Role="tbEducation" EntitySet="tbEducation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbEvalQuestions_tbEvaluation" Association="Self.FK_tbEvalQuestions_tbEvaluation">
+      <End Role="tbEvaluation" EntitySet="tbEvaluation" />
+      <End Role="tbEvalQuestions" EntitySet="tbEvalQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbEvalQuestions_tbQuestions" Association="Self.FK_tbEvalQuestions_tbQuestions">
+      <End Role="tbQuestions" EntitySet="tbQuestions" />
+      <End Role="tbEvalQuestions" EntitySet="tbEvalQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbEvaluation_tbDeveloper" Association="Self.FK_tbEvaluation_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDeveloper" />
+      <End Role="tbEvaluation" EntitySet="tbEvaluation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbExperiences_tbClient" Association="Self.FK_tbExperiences_tbClient">
+      <End Role="tbClient" EntitySet="tbClient" />
+      <End Role="tbExperiences" EntitySet="tbExperiences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbMessages_tbProjWorkroom" Association="Self.FK_tbMessages_tbProjWorkroom">
+      <End Role="tbProjWorkroom" EntitySet="tbProjWorkroom" />
+      <End Role="tbMessages" EntitySet="tbMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbModCheckpoints_tbModCheckpoints" Association="Self.FK_tbModCheckpoints_tbModCheckpoints">
+      <End Role="tbModuleWorkroom" EntitySet="tbModuleWorkroom" />
+      <End Role="tbModCheckpoints" EntitySet="tbModCheckpoints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbModMessages_tbModuleWorkroom" Association="Self.FK_tbModMessages_tbModuleWorkroom">
+      <End Role="tbModuleWorkroom" EntitySet="tbModuleWorkroom" />
+      <End Role="tbModMessages" EntitySet="tbModMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbModules_tbProject" Association="Self.FK_tbModules_tbProject">
+      <End Role="tbProject" EntitySet="tbProject" />
+      <End Role="tbModules" EntitySet="tbModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbModuleWorkroom_tbAwardedModules" Association="Self.FK_tbModuleWorkroom_tbAwardedModules">
+      <End Role="tbAwardedModules" EntitySet="tbAwardedModules" />
+      <End Role="tbModuleWorkroom" EntitySet="tbModuleWorkroom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbModWorkroomFiles_tbModuleWorkroom" Association="Self.FK_tbModWorkroomFiles_tbModuleWorkroom">
+      <End Role="tbModuleWorkroom" EntitySet="tbModuleWorkroom" />
+      <End Role="tbModWorkroomFiles" EntitySet="tbModWorkroomFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPM_tbUser" Association="Self.FK_tbPM_tbUser">
+      <End Role="tbUser" EntitySet="tbUser" />
+      <End Role="tbPM" EntitySet="tbPM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPortfolio_tbDeveloper" Association="Self.FK_tbPortfolio_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDeveloper" />
+      <End Role="tbPortfolio" EntitySet="tbPortfolio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProject_tbPM" Association="Self.FK_tbProject_tbPM">
+      <End Role="tbPM" EntitySet="tbPM" />
+      <End Role="tbProject" EntitySet="tbProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProjProposals_tbProject" Association="Self.FK_tbProjProposals_tbProject">
+      <End Role="tbProject" EntitySet="tbProject" />
+      <End Role="tbProjProposals" EntitySet="tbProjProposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProjProposals_tbRequirementEngineer" Association="Self.FK_tbProjProposals_tbRequirementEngineer">
+      <End Role="tbRequirementEngineer" EntitySet="tbRequirementEngineer" />
+      <End Role="tbProjProposals" EntitySet="tbProjProposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProjWorkroom_tbAwardedProj" Association="Self.FK_tbProjWorkroom_tbAwardedProj">
+      <End Role="tbAwardedProj" EntitySet="tbAwardedProj" />
+      <End Role="tbProjWorkroom" EntitySet="tbProjWorkroom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProjWorkroomFiles_tbProjWorkroom" Association="Self.FK_tbProjWorkroomFiles_tbProjWorkroom">
+      <End Role="tbProjWorkroom" EntitySet="tbProjWorkroom" />
+      <End Role="tbProjWorkroomFiles" EntitySet="tbProjWorkroomFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProposals_tbDeveloper" Association="Self.FK_tbProposals_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDeveloper" />
+      <End Role="tbProposals" EntitySet="tbProposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProposals_tbModules" Association="Self.FK_tbProposals_tbModules">
+      <End Role="tbModules" EntitySet="tbModules" />
+      <End Role="tbProposals" EntitySet="tbProposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbQualityAssurance_tbClient" Association="Self.FK_tbQualityAssurance_tbClient">
+      <End Role="tbClient" EntitySet="tbClient" />
+      <End Role="tbQualityAssurance" EntitySet="tbQualityAssurance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbRequests_tbModuleWorkroom" Association="Self.FK_tbRequests_tbModuleWorkroom">
+      <End Role="tbModuleWorkroom" EntitySet="tbModuleWorkroom" />
+      <End Role="tbModRequests" EntitySet="tbModRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbRequirementEngineer_tbClient" Association="Self.FK_tbRequirementEngineer_tbClient">
+      <End Role="tbClient" EntitySet="tbClient" />
+      <End Role="tbRequirementEngineer" EntitySet="tbRequirementEngineer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbSkills_tbDeveloper" Association="Self.FK_tbSkills_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDeveloper" />
+      <End Role="tbSkills" EntitySet="tbSkills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbSubModules_tbModules" Association="Self.FK_tbSubModules_tbModules">
+      <End Role="tbModules" EntitySet="tbModules" />
+      <End Role="tbSubModules" EntitySet="tbSubModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbUserCredentials_tbUser" Association="Self.FK_tbUserCredentials_tbUser">
+      <End Role="tbUser" EntitySet="tbUser" />
+      <End Role="tbUserCredentials" EntitySet="tbUserCredentials" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbModupModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbAnswer">
+    <Key>
+      <PropertyRef Name="ansID" />
+    </Key>
+    <Property Name="ansID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="qID" Type="Int32" />
+    <Property Name="answer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="isCorrect" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbQuestion" Relationship="Self.FK_tbAnswers_tbQuestions" FromRole="tbAnswers" ToRole="tbQuestions" />
+  </EntityType>
+  <EntityType Name="tbClient">
+    <Key>
+      <PropertyRef Name="clientID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="clientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="awardedProjects" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="totalEarning" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tagLine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="overview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isProfileComplete" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="actionCont" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbUser" Relationship="Self.FK_tbClient_tbUser" FromRole="tbClient" ToRole="tbUser" />
+    <NavigationProperty Name="tbDevelopers" Relationship="Self.FK_tbDeveloper_tbClient" FromRole="tbClient" ToRole="tbDeveloper" />
+    <NavigationProperty Name="tbEducations" Relationship="Self.FK_tbEducation_tbEducation" FromRole="tbClient" ToRole="tbEducation" />
+    <NavigationProperty Name="tbExperiences" Relationship="Self.FK_tbExperiences_tbClient" FromRole="tbClient" ToRole="tbExperiences" />
+    <NavigationProperty Name="tbQualityAssurances" Relationship="Self.FK_tbQualityAssurance_tbClient" FromRole="tbClient" ToRole="tbQualityAssurance" />
+    <NavigationProperty Name="tbRequirementEngineers" Relationship="Self.FK_tbRequirementEngineer_tbClient" FromRole="tbClient" ToRole="tbRequirementEngineer" />
+  </EntityType>
+  <EntityType Name="tbDeveloper">
+    <Key>
+      <PropertyRef Name="devID" />
+    </Key>
+    <Property Name="clientID" Type="Int32" Nullable="false" />
+    <Property Name="devID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="affiliation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbClient" Relationship="Self.FK_tbDeveloper_tbClient" FromRole="tbDeveloper" ToRole="tbClient" />
+    <NavigationProperty Name="tbEvaluations" Relationship="Self.FK_tbEvaluation_tbDeveloper" FromRole="tbDeveloper" ToRole="tbEvaluation" />
+    <NavigationProperty Name="tbPortfolios" Relationship="Self.FK_tbPortfolio_tbDeveloper" FromRole="tbDeveloper" ToRole="tbPortfolio" />
+    <NavigationProperty Name="tbProposals" Relationship="Self.FK_tbProposals_tbDeveloper" FromRole="tbDeveloper" ToRole="tbProposals" />
+    <NavigationProperty Name="tbSkills" Relationship="Self.FK_tbSkills_tbDeveloper" FromRole="tbDeveloper" ToRole="tbSkills" />
+  </EntityType>
+  <EntityType Name="tbEducation">
+    <Key>
+      <PropertyRef Name="eduID" />
+    </Key>
+    <Property Name="eduID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clientID" Type="Int32" Nullable="false" />
+    <Property Name="degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="institute" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbClient" Relationship="Self.FK_tbEducation_tbEducation" FromRole="tbEducation" ToRole="tbClient" />
+  </EntityType>
+  <EntityType Name="tbEvaluation">
+    <Key>
+      <PropertyRef Name="evalID" />
+    </Key>
+    <Property Name="evalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="devID" Type="Int32" Nullable="false" />
+    <Property Name="skill" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="result" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="score" Type="Double" />
+    <NavigationProperty Name="tbDeveloper" Relationship="Self.FK_tbEvaluation_tbDeveloper" FromRole="tbEvaluation" ToRole="tbDeveloper" />
+    <NavigationProperty Name="tbQuestions" Relationship="Self.tbEvalQuestions" FromRole="tbEvaluation" ToRole="tbQuestions" />
+  </EntityType>
+  <EntityType Name="tbExperience">
+    <Key>
+      <PropertyRef Name="expID" />
+    </Key>
+    <Property Name="expID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clientID" Type="Int32" Nullable="false" />
+    <Property Name="workedAs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="startingYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbClient" Relationship="Self.FK_tbExperiences_tbClient" FromRole="tbExperiences" ToRole="tbClient" />
+  </EntityType>
+  <EntityType Name="tbModule">
+    <Key>
+      <PropertyRef Name="modID" />
+    </Key>
+    <Property Name="modID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="projID" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="budget" Type="Int32" />
+    <Property Name="closeDate" Type="DateTime" Precision="0" />
+    <Property Name="devSkillLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="devType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="skillReq" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbAwardedModules" Relationship="Self.FK_tbAwardedModules_tbModules" FromRole="tbModules" ToRole="tbAwardedModules" />
+    <NavigationProperty Name="tbProject" Relationship="Self.FK_tbModules_tbProject" FromRole="tbModules" ToRole="tbProject" />
+    <NavigationProperty Name="tbProposals" Relationship="Self.FK_tbProposals_tbModules" FromRole="tbModules" ToRole="tbProposals" />
+  </EntityType>
+  <EntityType Name="tbPM">
+    <Key>
+      <PropertyRef Name="pmID" />
+    </Key>
+    <Property Name="pmID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="totalSpending" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="awardedProj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbUser" Relationship="Self.FK_tbPM_tbUser" FromRole="tbPM" ToRole="tbUser" />
+    <NavigationProperty Name="tbProjects" Relationship="Self.FK_tbProject_tbPM" FromRole="tbPM" ToRole="tbProject" />
+  </EntityType>
+  <EntityType Name="tbPortfolio">
+    <Key>
+      <PropertyRef Name="portfolioID" />
+    </Key>
+    <Property Name="portfolioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="devID" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="imageURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbDeveloper" Relationship="Self.FK_tbPortfolio_tbDeveloper" FromRole="tbPortfolio" ToRole="tbDeveloper" />
+  </EntityType>
+  <EntityType Name="tbProject">
+    <Key>
+      <PropertyRef Name="projID" />
+    </Key>
+    <Property Name="projID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pmID" Type="Int32" Nullable="false" />
+    <Property Name="moduleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="postDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="closeDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbModules" Relationship="Self.FK_tbModules_tbProject" FromRole="tbProject" ToRole="tbModules" />
+    <NavigationProperty Name="tbPM" Relationship="Self.FK_tbProject_tbPM" FromRole="tbProject" ToRole="tbPM" />
+  </EntityType>
+  <EntityType Name="tbProposal">
+    <Key>
+      <PropertyRef Name="propID" />
+    </Key>
+    <Property Name="propID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="devID" Type="Int32" Nullable="false" />
+    <Property Name="modID" Type="Int32" Nullable="false" />
+    <Property Name="covLetter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hourlyRate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estCompletion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbDeveloper" Relationship="Self.FK_tbProposals_tbDeveloper" FromRole="tbProposals" ToRole="tbDeveloper" />
+    <NavigationProperty Name="tbModule" Relationship="Self.FK_tbProposals_tbModules" FromRole="tbProposals" ToRole="tbModules" />
+  </EntityType>
+  <EntityType Name="tbQualityAssurance">
+    <Key>
+      <PropertyRef Name="qaID" />
+    </Key>
+    <Property Name="clientID" Type="Int32" Nullable="false" />
+    <Property Name="qaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tbClient" Relationship="Self.FK_tbQualityAssurance_tbClient" FromRole="tbQualityAssurance" ToRole="tbClient" />
+  </EntityType>
+  <EntityType Name="tbQuestion">
+    <Key>
+      <PropertyRef Name="qID" />
+    </Key>
+    <Property Name="qID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="question" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="skill" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbAnswers" Relationship="Self.FK_tbAnswers_tbQuestions" FromRole="tbQuestions" ToRole="tbAnswers" />
+    <NavigationProperty Name="tbEvaluations" Relationship="Self.tbEvalQuestions" FromRole="tbQuestions" ToRole="tbEvaluation" />
+  </EntityType>
+  <EntityType Name="tbRequirementEngineer">
+    <Key>
+      <PropertyRef Name="raID" />
+    </Key>
+    <Property Name="clientID" Type="Int32" Nullable="false" />
+    <Property Name="raID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tbClient" Relationship="Self.FK_tbRequirementEngineer_tbClient" FromRole="tbRequirementEngineer" ToRole="tbClient" />
+  </EntityType>
+  <EntityType Name="tbSkill">
+    <Key>
+      <PropertyRef Name="skillID" />
+    </Key>
+    <Property Name="skillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="devID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="skillLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hourlyRate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbDeveloper" Relationship="Self.FK_tbSkills_tbDeveloper" FromRole="tbSkills" ToRole="tbDeveloper" />
+  </EntityType>
+  <EntityType Name="tbUser">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="postalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="accountType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbClients" Relationship="Self.FK_tbClient_tbUser" FromRole="tbUser" ToRole="tbClient" />
+    <NavigationProperty Name="tbPMs" Relationship="Self.FK_tbPM_tbUser" FromRole="tbUser" ToRole="tbPM" />
+    <NavigationProperty Name="tbUserCredential" Relationship="Self.FK_tbUserCredentials_tbUser" FromRole="tbUser" ToRole="tbUserCredentials" />
+  </EntityType>
+  <EntityType Name="tbUserCredential">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="secretQ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="secretA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbUser" Relationship="Self.FK_tbUserCredentials_tbUser" FromRole="tbUserCredentials" ToRole="tbUser" />
+  </EntityType>
+  <EntityType Name="tbAwardedModule">
+    <Key>
+      <PropertyRef Name="modID" />
+      <PropertyRef Name="propID" />
+    </Key>
+    <Property Name="modID" Type="Int32" Nullable="false" />
+    <Property Name="propID" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbModule" Relationship="Self.FK_tbAwardedModules_tbModules" FromRole="tbAwardedModules" ToRole="tbModules" />
+  </EntityType>
+  <Association Name="FK_tbAnswers_tbQuestions">
+    <End Role="tbQuestions" Type="Self.tbQuestion" Multiplicity="0..1" />
+    <End Role="tbAnswers" Type="Self.tbAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbQuestions">
+        <PropertyRef Name="qID" />
+      </Principal>
+      <Dependent Role="tbAnswers">
+        <PropertyRef Name="qID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbClient_tbUser">
+    <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbUser">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="tbClient">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbDeveloper_tbClient">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbDeveloper">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbEducation_tbEducation">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbEducation" Type="Self.tbEducation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbEducation">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbExperiences_tbClient">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbExperiences" Type="Self.tbExperience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbExperiences">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbQualityAssurance_tbClient">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbQualityAssurance" Type="Self.tbQualityAssurance" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbQualityAssurance">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbRequirementEngineer_tbClient">
+    <End Role="tbClient" Type="Self.tbClient" Multiplicity="1" />
+    <End Role="tbRequirementEngineer" Type="Self.tbRequirementEngineer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbClient">
+        <PropertyRef Name="clientID" />
+      </Principal>
+      <Dependent Role="tbRequirementEngineer">
+        <PropertyRef Name="clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbEvaluation_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbEvaluation" Type="Self.tbEvaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbEvaluation">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPortfolio_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbPortfolio" Type="Self.tbPortfolio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbPortfolio">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProposals_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbProposals" Type="Self.tbProposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbProposals">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbSkills_tbDeveloper">
+    <End Role="tbDeveloper" Type="Self.tbDeveloper" Multiplicity="1" />
+    <End Role="tbSkills" Type="Self.tbSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeveloper">
+        <PropertyRef Name="devID" />
+      </Principal>
+      <Dependent Role="tbSkills">
+        <PropertyRef Name="devID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAwardedModules_tbModules">
+    <End Role="tbModules" Type="Self.tbModule" Multiplicity="1" />
+    <End Role="tbAwardedModules" Type="Self.tbAwardedModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModules">
+        <PropertyRef Name="modID" />
+      </Principal>
+      <Dependent Role="tbAwardedModules">
+        <PropertyRef Name="modID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbModules_tbProject">
+    <End Role="tbProject" Type="Self.tbProject" Multiplicity="1" />
+    <End Role="tbModules" Type="Self.tbModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProject">
+        <PropertyRef Name="projID" />
+      </Principal>
+      <Dependent Role="tbModules">
+        <PropertyRef Name="projID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProposals_tbModules">
+    <End Role="tbModules" Type="Self.tbModule" Multiplicity="1" />
+    <End Role="tbProposals" Type="Self.tbProposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModules">
+        <PropertyRef Name="modID" />
+      </Principal>
+      <Dependent Role="tbProposals">
+        <PropertyRef Name="modID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPM_tbUser">
+    <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
+    <End Role="tbPM" Type="Self.tbPM" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbUser">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="tbPM">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProject_tbPM">
+    <End Role="tbPM" Type="Self.tbPM" Multiplicity="1" />
+    <End Role="tbProject" Type="Self.tbProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPM">
+        <PropertyRef Name="pmID" />
+      </Principal>
+      <Dependent Role="tbProject">
+        <PropertyRef Name="pmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbUserCredentials_tbUser">
+    <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
+    <End Role="tbUserCredentials" Type="Self.tbUserCredential" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbUser">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="tbUserCredentials">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbEvalQuestions">
+    <End Role="tbEvaluation" Type="Self.tbEvaluation" Multiplicity="*" />
+    <End Role="tbQuestions" Type="Self.tbQuestion" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="dbModupEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbAnswers" EntityType="Self.tbAnswer" />
+    <EntitySet Name="tbClients" EntityType="Self.tbClient" />
+    <EntitySet Name="tbDevelopers" EntityType="Self.tbDeveloper" />
+    <EntitySet Name="tbEducations" EntityType="Self.tbEducation" />
+    <EntitySet Name="tbEvaluations" EntityType="Self.tbEvaluation" />
+    <EntitySet Name="tbExperiences" EntityType="Self.tbExperience" />
+    <EntitySet Name="tbModules" EntityType="Self.tbModule" />
+    <EntitySet Name="tbPMs" EntityType="Self.tbPM" />
+    <EntitySet Name="tbPortfolios" EntityType="Self.tbPortfolio" />
+    <EntitySet Name="tbProjects" EntityType="Self.tbProject" />
+    <EntitySet Name="tbProposals" EntityType="Self.tbProposal" />
+    <EntitySet Name="tbQualityAssurances" EntityType="Self.tbQualityAssurance" />
+    <EntitySet Name="tbQuestions" EntityType="Self.tbQuestion" />
+    <EntitySet Name="tbRequirementEngineers" EntityType="Self.tbRequirementEngineer" />
+    <EntitySet Name="tbSkills" EntityType="Self.tbSkill" />
+    <EntitySet Name="tbUsers" EntityType="Self.tbUser" />
+    <EntitySet Name="tbUserCredentials" EntityType="Self.tbUserCredential" />
+    <EntitySet Name="tbAwardedModules" EntityType="Self.tbAwardedModule" />
+    <AssociationSet Name="FK_tbAnswers_tbQuestions" Association="Self.FK_tbAnswers_tbQuestions">
+      <End Role="tbQuestions" EntitySet="tbQuestions" />
+      <End Role="tbAnswers" EntitySet="tbAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbClient_tbUser" Association="Self.FK_tbClient_tbUser">
+      <End Role="tbUser" EntitySet="tbUsers" />
+      <End Role="tbClient" EntitySet="tbClients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbDeveloper_tbClient" Association="Self.FK_tbDeveloper_tbClient">
+      <End Role="tbClient" EntitySet="tbClients" />
+      <End Role="tbDeveloper" EntitySet="tbDevelopers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbEducation_tbEducation" Association="Self.FK_tbEducation_tbEducation">
+      <End Role="tbClient" EntitySet="tbClients" />
+      <End Role="tbEducation" EntitySet="tbEducations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbExperiences_tbClient" Association="Self.FK_tbExperiences_tbClient">
+      <End Role="tbClient" EntitySet="tbClients" />
+      <End Role="tbExperiences" EntitySet="tbExperiences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbQualityAssurance_tbClient" Association="Self.FK_tbQualityAssurance_tbClient">
+      <End Role="tbClient" EntitySet="tbClients" />
+      <End Role="tbQualityAssurance" EntitySet="tbQualityAssurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbRequirementEngineer_tbClient" Association="Self.FK_tbRequirementEngineer_tbClient">
+      <End Role="tbClient" EntitySet="tbClients" />
+      <End Role="tbRequirementEngineer" EntitySet="tbRequirementEngineers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbEvaluation_tbDeveloper" Association="Self.FK_tbEvaluation_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDevelopers" />
+      <End Role="tbEvaluation" EntitySet="tbEvaluations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPortfolio_tbDeveloper" Association="Self.FK_tbPortfolio_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDevelopers" />
+      <End Role="tbPortfolio" EntitySet="tbPortfolios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProposals_tbDeveloper" Association="Self.FK_tbProposals_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDevelopers" />
+      <End Role="tbProposals" EntitySet="tbProposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbSkills_tbDeveloper" Association="Self.FK_tbSkills_tbDeveloper">
+      <End Role="tbDeveloper" EntitySet="tbDevelopers" />
+      <End Role="tbSkills" EntitySet="tbSkills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAwardedModules_tbModules" Association="Self.FK_tbAwardedModules_tbModules">
+      <End Role="tbModules" EntitySet="tbModules" />
+      <End Role="tbAwardedModules" EntitySet="tbAwardedModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbModules_tbProject" Association="Self.FK_tbModules_tbProject">
+      <End Role="tbProject" EntitySet="tbProjects" />
+      <End Role="tbModules" EntitySet="tbModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProposals_tbModules" Association="Self.FK_tbProposals_tbModules">
+      <End Role="tbModules" EntitySet="tbModules" />
+      <End Role="tbProposals" EntitySet="tbProposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPM_tbUser" Association="Self.FK_tbPM_tbUser">
+      <End Role="tbUser" EntitySet="tbUsers" />
+      <End Role="tbPM" EntitySet="tbPMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProject_tbPM" Association="Self.FK_tbProject_tbPM">
+      <End Role="tbPM" EntitySet="tbPMs" />
+      <End Role="tbProject" EntitySet="tbProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbUserCredentials_tbUser" Association="Self.FK_tbUserCredentials_tbUser">
+      <End Role="tbUser" EntitySet="tbUsers" />
+      <End Role="tbUserCredentials" EntitySet="tbUserCredentials" />
+    </AssociationSet>
+    <AssociationSet Name="tbEvalQuestions" Association="Self.tbEvalQuestions">
+      <End Role="tbEvaluation" EntitySet="tbEvaluations" />
+      <End Role="tbQuestions" EntitySet="tbQuestions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

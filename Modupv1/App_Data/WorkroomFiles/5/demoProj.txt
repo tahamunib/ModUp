@@ -1,0 +1,62 @@
+
+Project Desc:
+
+The sample application is a command-line application with a single class, Person. The Person class has three properties: Age, FullName, and CashBalance, along with a method, BuyCar(amount), which debits amount from the person's CashBalance.
+
+-A person has properties to access their age, full name, and cash balance.
+-When instantiating a person, we should be able to provide the first and last name, along with the age.
+-The person's full name property should return the specified first and last names with a space in-between.
+-When instantiating a person the cash balance should be 100,000.
+-The cash balance should be reduced by the amount spent on car purchase.
+
+
+
+Test Cases:
+
+using NUnit.Framework;
+
+[TestFixture]
+public class TestClass
+{
+   Person pTest;
+   public TestClass()
+   {
+      //
+      // TODO: Add constructor logic here
+      //
+   }
+
+
+   [SetUp]public void Init()
+   {
+      pTest = new Person("John", "Abraham", 10);
+   }
+
+   [Test]public void IsNameJohnSmith()
+   {
+      Assert.IsFalse("John Smith" == pTest.FullName);
+   }
+
+   [Test]public void IsAgeEqual()
+   {
+      Assert.AreEqual(10, pTest.Age);
+   }
+
+   [Test]public void IsNameJohnAbraham()
+   {
+      Assert.AreEqual("John Abraham", pTest.FullName);
+   }
+
+   [Test]public void BalanceBeforeCarPurchase()
+   {
+      Assert.AreEqual(100000, pTest.CashBalance);
+   }
+
+   [Test]public void BalanceAfterCarPurchase()
+   {
+      pTest.BuyCar(20000);
+      Assert.AreEqual(80000, pTest.CashBalance);
+   }
+}
+
+

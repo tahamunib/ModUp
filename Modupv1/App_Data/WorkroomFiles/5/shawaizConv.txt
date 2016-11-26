@@ -1,0 +1,74 @@
+steps.
+
+1. install xammp
+2. install composer (brwose php correctly)
+3. run command prompt as adminsitrator
+4. run command 
+
+composer global require "laravel/installer=~1.1"
+
+5.browser to lcoation of installed "composer/vendor/bin"
+6. copy path of folder
+7. add that path to enviornment variable
+8. restart command prompt
+9. run command
+
+laravel new <project name> 
+
+bus phir project ban jayega
+
+
+
+routes yaha hotaya ha..
+
+
+custom route yaha likhtah ha
+
+aur woh model controller bananay ka tarekkay yeh thay
+
+migrations etc aur dusray kam jo kartay thay
+
+
+abhi ye view dikh raha ha..
+
+resources/views ma
+apnay pages yaha store karna...
+
+
+baqi explore karo..
+
+behtreen 
+:*
+
+3 4 din se kr rha tha m usi tutorial ko follow kr k lekin sb command use ni ki ti aur 2 3 tutorial aik sth follow kr rha tha sb mix horhah
+a
+acha. yeh daikho jo miss karna chah rahi thi 
+
+route ->controller -> view generation
+
+
+is tarah route sa controller ko call jati ha
+
+aur view pa results latay ha controller pa logic chalnay ka bad,
+
+set ha 
+
+ab smjh ara ha subha tw kch ni ara tha
+yehi tutorial follow karo..
+
+laravel.com/docs/4,2 walay
+
+sab hojayega jaldi
+
+theek
+chalo ma chala. movie daikhni ha koi. daikhtay hu koi dhang ki..
+
+theek ha thanks bhai ;)
+
+lol np :D
+
+tc
+
+
+
+

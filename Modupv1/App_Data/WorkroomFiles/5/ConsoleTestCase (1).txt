@@ -1,0 +1,43 @@
+[TestFixture]
+public class TestClass
+{
+   Person pTest;
+   public TestClass()
+   {
+      //
+      // TODO: Add constructor logic here
+      //
+   }
+
+
+   [SetUp]public void Init()
+   {
+      pTest = new Person("John", "Abraham", 10);
+   }
+
+   [Test]public void IsNameJohnSmith()
+   {
+      Assert.IsFalse("John Smith" == pTest.FullName);
+   }
+
+   [Test]public void IsAgeEqual()
+   {
+      Assert.AreEqual(10, pTest.Age);
+   }
+
+   [Test]public void IsNameJohnAbraham()
+   {
+      Assert.AreEqual("John Abraham", pTest.FullName);
+   }
+
+   [Test]public void BalanceBeforeCarPurchase()
+   {
+      Assert.AreEqual(100000, pTest.CashBalance);
+   }
+
+   [Test]public void BalanceAfterCarPurchase()
+   {
+      pTest.BuyCar(20000);
+      Assert.AreEqual(80000, pTest.CashBalance);
+   }
+}

@@ -1,0 +1,10 @@
+#Protect contactform.php
+<files contactform.php>
+order allow,deny
+deny from all
+</files>
+
+
+
+#Prevents directory listing
+Options -Indexes

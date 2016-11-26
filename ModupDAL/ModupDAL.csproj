@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ADD16621-558C-4F30-AF7F-88EF34E91275}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ModupDAL</RootNamespace>
+    <AssemblyName>ModupDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModupModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModupModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModupModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModupModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModupModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbAnswer.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbAwardedModule.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbAwardedProj.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbCheckpointReq.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbClient.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbDeveloper.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbEducation.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbEvaluation.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbExperience.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbMessage.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbModCheckpoint.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbModMessage.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbModRequest.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbModule.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbModuleWorkroom.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbModWorkroomFile.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbPM.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbPortfolio.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbProject.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbProjProposal.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbProjWorkroom.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbProjWorkroomFile.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbProposal.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbQualityAssurance.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbQuestion.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbRequirementEngineer.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbSkill.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbSubModule.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbUser.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbUserCredential.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ModupModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModupModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="ModupModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModupModel.edmx</DependentUpon>
+      <LastGenOutput>ModupModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModupModel.edmx.diagram">
+      <DependentUpon>ModupModel.edmx</DependentUpon>
+    </None>
+    <None Include="ModupModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModupModel.edmx</DependentUpon>
+      <LastGenOutput>ModupModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

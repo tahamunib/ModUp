@@ -1,0 +1,14 @@
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\ModupAuthorization.dll
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\ModupAuthorization.pdb
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\BCrypt.Net.dll
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\BCrypt.Net.pdb
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\BCrypt.Net.xml
+F:\In progress\Modup\Modupv1\ModupAuthorization\obj\Debug\ModupAuthorization.csprojResolveAssemblyReference.cache
+F:\In progress\Modup\Modupv1\ModupAuthorization\obj\Debug\ModupAuthorization.dll
+F:\In progress\Modup\Modupv1\ModupAuthorization\obj\Debug\ModupAuthorization.pdb
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\ModupBLL.dll
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\ModupDAL.dll
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\EntityFramework.dll
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\ModupBLL.pdb
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\ModupDAL.pdb
+F:\In progress\Modup\Modupv1\ModupAuthorization\bin\Debug\EntityFramework.xml

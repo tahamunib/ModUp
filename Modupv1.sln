@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modupv1", "Modupv1\Modupv1.csproj", "{5F4A37EB-6141-4205-8C5F-A3E2EACF0875}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ADD16621-558C-4F30-AF7F-88EF34E91275} = {ADD16621-558C-4F30-AF7F-88EF34E91275}
+		{10E01776-FF19-4739-B90E-6934E1B91C3F} = {10E01776-FF19-4739-B90E-6934E1B91C3F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModupAuthorization", "ModupAuthorization\ModupAuthorization.csproj", "{B0782461-6FB8-4EAC-9B1F-C85164F71EA9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ADD16621-558C-4F30-AF7F-88EF34E91275} = {ADD16621-558C-4F30-AF7F-88EF34E91275}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModupBLL", "ModupBLL\ModupBLL.csproj", "{10E01776-FF19-4739-B90E-6934E1B91C3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModupDAL", "ModupDAL\ModupDAL.csproj", "{ADD16621-558C-4F30-AF7F-88EF34E91275}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F4A37EB-6141-4205-8C5F-A3E2EACF0875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F4A37EB-6141-4205-8C5F-A3E2EACF0875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F4A37EB-6141-4205-8C5F-A3E2EACF0875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F4A37EB-6141-4205-8C5F-A3E2EACF0875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0782461-6FB8-4EAC-9B1F-C85164F71EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0782461-6FB8-4EAC-9B1F-C85164F71EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0782461-6FB8-4EAC-9B1F-C85164F71EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0782461-6FB8-4EAC-9B1F-C85164F71EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10E01776-FF19-4739-B90E-6934E1B91C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10E01776-FF19-4739-B90E-6934E1B91C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10E01776-FF19-4739-B90E-6934E1B91C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10E01776-FF19-4739-B90E-6934E1B91C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADD16621-558C-4F30-AF7F-88EF34E91275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD16621-558C-4F30-AF7F-88EF34E91275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD16621-558C-4F30-AF7F-88EF34E91275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD16621-558C-4F30-AF7F-88EF34E91275}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

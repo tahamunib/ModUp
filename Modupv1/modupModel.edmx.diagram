@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32f1dbab5f864985a2d0a42095afa3a2" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="dbModupModel.tbAnswer" Width="1.5" PointX="13.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbAwardedModule" Width="1.5" PointX="5.875" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbAwardedProj" Width="1.5" PointX="4.625" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbClient" Width="1.5" PointX="5.375" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbDeveloper" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbEducation" Width="1.5" PointX="0.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbEvaluation" Width="1.5" PointX="8.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbExperience" Width="1.5" PointX="0.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbModule" Width="1.5" PointX="8.125" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbPM" Width="1.5" PointX="2.875" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbPortfolio" Width="1.5" PointX="0.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbProject" Width="1.5" PointX="5.125" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbProjProposal" Width="1.5" PointX="13.125" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbProposal" Width="1.5" PointX="7.375" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbQuestion" Width="1.5" PointX="10.625" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbRequirementEngineer" Width="1.5" PointX="8" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbSkill" Width="1.5" PointX="0.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbUser" Width="1.5" PointX="2.875" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModupModel.tbUserCredential" PointX="0.5" PointY="17" Width="1.5" IsExpanded="true" />
+        <AssociationConnector Association="dbModupModel.FK_tbAnswers_tbQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbAwardedModules_tbDeveloper" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbAwardedModules_tbModules" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbAwardedModules_tbProposals" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbAwardedProj_tbProject" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbAwardedProj_tbRequirementEngineer" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbClient_tbUser" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbDeveloper_tbClient" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbEducation_tbEducation" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbExperiences_tbClient" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbRequirementEngineer_tbClient" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbEvaluation_tbDeveloper" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbPortfolio_tbDeveloper" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbProposals_tbDeveloper" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbSkills_tbDeveloper" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbModules_tbProject" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbProposals_tbModules" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbPM_tbUser" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbProject_tbPM" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbProjProposals_tbProject" ManuallyRouted="false" ></AssociationConnector>
+        <AssociationConnector Association="dbModupModel.FK_tbProjProposals_tbRequirementEngineer" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="dbModupModel.FK_tbUserCredentials_tbUser" />
+        <AssociationConnector Association="dbModupModel.tbEvalQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModupModel.FK_tbAwardedProj_tbProposals1" />
+        <AssociationConnector Association="dbModupModel.FK_tbAwardedProj_tbRequirementEngineer1" />
+        <EntityTypeShape EntityType="dbModupModel.tbMessage" Width="1.5" PointX="0.5" PointY="20.5" />
+        <EntityTypeShape EntityType="dbModupModel.tbProjWorkroom" Width="1.5" PointX="2.5" PointY="21" />
+        <AssociationConnector Association="dbModupModel.FK_tbProjWorkroom_tbAwardedProj" />
+        <AssociationConnector Association="dbModupModel.FK_tbMessages_tbProjWorkroom" />
+        <EntityTypeShape EntityType="dbModupModel.tbModMessage" Width="1.5" PointX="13.375" PointY="12.75" />
+        <EntityTypeShape EntityType="dbModupModel.tbModuleWorkroom" Width="2" PointX="10.375" PointY="12.75" />
+        <AssociationConnector Association="dbModupModel.FK_tbModuleWorkroom_tbAwardedModules" />
+        <AssociationConnector Association="dbModupModel.FK_tbModMessages_tbModuleWorkroom" />
+        <EntityTypeShape EntityType="dbModupModel.tbModCheckpoint" Width="1.5" PointX="12.125" PointY="10" />
+        <AssociationConnector Association="dbModupModel.FK_tbModCheckpoints_tbModCheckpoints" />
+        <EntityTypeShape EntityType="dbModupModel.tbCheckpointReq" Width="1.5" PointX="14" PointY="10.125" />
+        <EntityTypeShape EntityType="dbModupModel.tbModRequest" Width="1.5" PointX="10.25" PointY="9.75" />
+        <AssociationConnector Association="dbModupModel.FK_tbCheckpointReqs_tbModCheckpoints" />
+        <AssociationConnector Association="dbModupModel.FK_tbRequests_tbModuleWorkroom1" />
+        <EntityTypeShape EntityType="dbModupModel.tbModWorkroomFile" Width="2" PointX="10.5" PointY="15" />
+        <EntityTypeShape EntityType="dbModupModel.tbProjWorkroomFile" Width="1.5" PointX="7.625" PointY="20.75" />
+        <AssociationConnector Association="dbModupModel.FK_tbModWorkroomFiles_tbModuleWorkroom" />
+        <AssociationConnector Association="dbModupModel.FK_tbProjWorkroomFiles_tbProjWorkroom" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

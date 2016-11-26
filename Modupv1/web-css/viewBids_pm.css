@@ -1,0 +1,192 @@
+.table-head{
+	font-size:1.3em;
+}
+th{
+	font-size:1.2em;/*
+	padding:3%;*/
+	padding-bottom:3%;
+}
+td p{
+	font-size:1em;/*
+	padding-left:3%;
+	padding-right:3%;*/
+}
+
+.padding-default{
+	padding:2em;
+}
+.cust-h{
+	margin-bottom:1em;
+	line-height:1.5;
+}
+.cust-p{
+	margin-bottom:1.5em;
+	line-height:1.5;
+}
+.cust-radio-ans{
+	margin-bottom:1.5em;
+	line-height:1.5;
+	padding-left:3%;
+}
+.margin-left{
+	margin-left:2em;
+}
+.margin-top-more{
+	margin-top:4%;
+}
+.padding-left{
+	padding-left:3%;
+}
+.btn-default{
+	border-radius:50%;
+}
+
+.radio-check{
+	width:35px;
+}
+.radio-check span{
+	margin-left:-0.2em;
+}
+#main-content {
+    margin-left: 0px;
+}
+.offset-to-mid{
+	padding-left:4%;
+	padding-right:4%;
+}
+.offset-to-mid-propTable{
+	padding-left:13%;
+	padding-right:1%;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.advertisement{
+	width:100%;
+	height:140px;
+    background: white url(../img/backgrounds/bg-11.jpg) no-repeat;
+    background-size: cover;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	padding:3%;
+}
+.search-form-control{
+    width: 500px;
+    background: white url('../img/icons/search-line-icon.png') no-repeat 3px;
+    padding-left: 24px;
+    margin-bottom: 2%;   
+	margin-right:5%; 
+	float:left;
+}
+.dollar-form-control{
+    width: 170px;
+    background: white url('../img/icons/Currency-_Dollar.png') no-repeat 3px;
+    padding-left: 24px;
+    margin-bottom: 2%;   
+	margin-right:5%; 
+	float:left;
+}
+.width-form-control{
+    width: 200px;   
+	margin-right:5%; 
+    margin-bottom: 2%;   
+	float:left;
+}
+
+.widthPrice-form-control{
+    width: 200px;     
+	float:left;
+}
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+.bidProposal-header-head{
+  border: 1px solid #f1f1f1;
+}
+.bidProposal-header{
+  /* background-color: #474e5d; Dark Blue */
+}
+.bidProposal-header-left{
+  text-align:center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /*  background-color: #111;Dark Blue */
+  border: 1px solid #f1f1f1;
+  min-width:340px;
+}
+.bidProposal-header-left-firDiv{
+/*  background-color: #f00;*/
+  width:25%;
+  float:left;
+}
+
+.bidProposal-header-left-secDiv{
+/*  background-color: #0f0;*/
+  border-left: 1px solid #f1f1f1;
+  border-right: 1px solid #f1f1f1;
+  width:25%;
+  float:left;
+}
+
+.bidProposal-header-left-thiDiv{
+/*  background-color: #00f;*/
+  width:25%;
+  float:left;
+}
+.bidProposal-header-left-fourDiv{
+/*  background-color: #00f;*/
+  width:25%;
+  float:left;
+}
+.bidProposal-header-right{
+  padding-top: 6px;
+  padding-bottom: 6px;
+cursor:pointer;
+  
+  background: rgba(204,90,79,1);
+background: -moz-linear-gradient(top, rgba(204,90,79,1) 0%, rgba(217,86,74,1) 50%, rgba(197,70,58,1) 51%, rgba(197,58,93,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(204,90,79,1)), color-stop(50%, rgba(217,86,74,1)), color-stop(51%, rgba(197,70,58,1)), color-stop(100%, rgba(197,58,93,1)));
+background: -webkit-linear-gradient(top, rgba(204,90,79,1) 0%, rgba(217,86,74,1) 50%, rgba(197,70,58,1) 51%, rgba(197,58,93,1) 100%);
+background: -o-linear-gradient(top, rgba(204,90,79,1) 0%, rgba(217,86,74,1) 50%, rgba(197,70,58,1) 51%, rgba(197,58,93,1) 100%);
+background: -ms-linear-gradient(top, rgba(204,90,79,1) 0%, rgba(217,86,74,1) 50%, rgba(197,70,58,1) 51%, rgba(197,58,93,1) 100%);
+background: linear-gradient(to bottom, rgba(204,90,79,1) 0%, rgba(217,86,74,1) 50%, rgba(197,70,58,1) 51%, rgba(197,58,93,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc5a4f', endColorstr='#c53a5d', GradientType=0 );
+}
+.bidProposal-header-right:hover{
+  padding-top: 6px;
+  padding-bottom: 6px;
+cursor:pointer;
+  
+  background: rgba(217,86,74,1);
+background: -moz-linear-gradient(top, rgba(217,86,74,1) 0%, rgba(197,58,93,1) 50%, rgba(204,90,79,1) 82%, rgba(197,70,58,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(217,86,74,1)), color-stop(50%, rgba(197,58,93,1)), color-stop(82%, rgba(204,90,79,1)), color-stop(100%, rgba(197,70,58,1)));
+background: -webkit-linear-gradient(top, rgba(217,86,74,1) 0%, rgba(197,58,93,1) 50%, rgba(204,90,79,1) 82%, rgba(197,70,58,1) 100%);
+background: -o-linear-gradient(top, rgba(217,86,74,1) 0%, rgba(197,58,93,1) 50%, rgba(204,90,79,1) 82%, rgba(197,70,58,1) 100%);
+background: -ms-linear-gradient(top, rgba(217,86,74,1) 0%, rgba(197,58,93,1) 50%, rgba(204,90,79,1) 82%, rgba(197,70,58,1) 100%);
+background: linear-gradient(to bottom, rgba(217,86,74,1) 0%, rgba(197,58,93,1) 50%, rgba(204,90,79,1) 82%, rgba(197,70,58,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9564a', endColorstr='#c5463a', GradientType=0 );
+}
+.bidButton{
+	text-align:center;
+	line-height:1.5;
+	font-size:1.5em;
+  	color: #fff;
+	font-weight:bold;
+}
+#hover-content {
+	 visibility: hidden;
+}
+#parent:hover #hover-content {
+	 visibility: visible;
+}
+.bidProposal-footer{
+	padding: 2% 2% 2% 2%;
+  /*background-color: #ccc;  Dark Blue */
+}
+.footer-fix{
+	font-size:1.4em;
+}
