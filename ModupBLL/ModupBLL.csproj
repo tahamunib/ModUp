@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ModupAuthorization\ModupAuthorization.csproj">
+      <Project>{b0782461-6fb8-4eac-9b1f-c85164f71ea9}</Project>
+      <Name>ModupAuthorization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ModupDAL\ModupDAL.csproj">
       <Project>{add16621-558c-4f30-af7f-88ef34e91275}</Project>
       <Name>ModupDAL</Name>

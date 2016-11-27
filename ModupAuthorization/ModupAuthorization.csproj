@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authorize.cs" />
     <Compile Include="Hashing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,16 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ModupBLL\ModupBLL.csproj">
-      <Project>{10e01776-ff19-4739-b90e-6934e1b91c3f}</Project>
-      <Name>ModupBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ModupDAL\ModupDAL.csproj">
-      <Project>{add16621-558c-4f30-af7f-88ef34e91275}</Project>
-      <Name>ModupDAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

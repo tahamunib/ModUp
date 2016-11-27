@@ -714,18 +714,18 @@
                     <h4><span class="glyphicon glyphicon-ok-circle"></span>SignUp</h4>
                 </div>
                 <div class="modal-body" style="padding: 40px 50px;">
-                    <form role="form" method="post" action="<%: Url.Action("Register", "Account") %>">
+                    <form id="frmSignup" role="form" method="post" action="<%: Url.Action("Register", "Account") %>">
                         <%: Html.AntiForgeryToken() %>
 
                         <span id="sprytextfield2"><div class="form-group">
                             <label for="cPass"><span class="glyphicon glyphicon-eye-close"></span>First Name</label>
-
-                            <%: Html.TextBoxFor(model => model.tbUser.firstName, new { @class = "form-control"}) %>
-                            <%: Html.ValidationMessageFor(model => model.tbUser.firstName) %>
+                            <input type="text" class="form-control" id="email" placeholder="Enter email"/>
+                            <%--<%: Html.TextBoxFor(model => model.tbUser.firstName, new { @class = "form-control"}) %>--%>
+                            <%--<%: Html.ValidationMessageFor(model => model.tbUser.firstName) %>--%>
                         </div><span class="textfieldRequiredMsg">* This field is required</span></span>
                         <span id="sprytextfield3"><div class="form-group">
                             <label for="cPass"><span class="glyphicon glyphicon-eye-close"></span>Last Name</label>
-
+                            <input type="text" class="form-control" id="email" placeholder="Enter email"/>
                             <%: Html.TextBoxFor(model => model.tbUser.lastName, new { @class = "form-control"}) %>
                             <%: Html.ValidationMessageFor(model => model.tbUser.lastName) %>
                         </div><span class="textfieldRequiredMsg">* This field is required</span></span>
@@ -767,7 +767,7 @@
                     }, new { @class = "form-control"}
                   )%>
                         </div><span class="selectRequiredMsg">* Choose One</span></span>
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>SignUp</button>
+                        <button id ="btnSignup" type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>SignUp</button>
                     </form>
                 </div>
                 <div class="modal-footer">

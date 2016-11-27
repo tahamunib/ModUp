@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ModupDAL;
 using ModupBLL.ModupModels;
-
+using ModupAuthorization;
 
 namespace ModupBLL
 {
@@ -34,8 +34,10 @@ namespace ModupBLL
             
             try
             {
+                user.UserCredentials.password = ModupAuthorization.Hashing.HashUsernamePassword(user.UserCredentials.username, user.UserCredentials.password);
                 db.tbUsers.Add(user.User);
                 db.tbUserCredentials.Add(user.UserCredentials);
+                db.SaveChanges();
                 return true;
             }
             catch
