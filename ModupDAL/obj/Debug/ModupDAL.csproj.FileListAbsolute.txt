@@ -8,3 +8,13 @@ F:\In progress\Modup\Modupv1\ModupDAL\bin\Debug\EntityFramework.SqlServer.xml
 F:\In progress\Modup\Modupv1\ModupDAL\obj\Debug\ModupDAL.csprojResolveAssemblyReference.cache
 F:\In progress\Modup\Modupv1\ModupDAL\obj\Debug\ModupDAL.dll
 F:\In progress\Modup\Modupv1\ModupDAL\obj\Debug\ModupDAL.pdb
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\bin\Debug\ModupDAL.dll.config
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\bin\Debug\ModupDAL.dll
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\bin\Debug\ModupDAL.pdb
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\bin\Debug\EntityFramework.dll
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\bin\Debug\EntityFramework.SqlServer.dll
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\bin\Debug\EntityFramework.xml
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\bin\Debug\EntityFramework.SqlServer.xml
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\obj\Debug\ModupDAL.csprojResolveAssemblyReference.cache
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\obj\Debug\ModupDAL.dll
+F:\In progress\Modup\Modupv1\Modup\ModupDAL\obj\Debug\ModupDAL.pdb

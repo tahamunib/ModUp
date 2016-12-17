@@ -1,0 +1,29 @@
+.padding-default{
+	padding:2em;
+}
+.cust-h{
+	margin-bottom:1em;
+}
+.cust-p{
+	margin-bottom:1.5em;
+	line-height:1.5;
+}
+.margin-right{
+	margin-right:1em;
+}
+#main-content {
+    margin-left: 0px;
+}
+.offset-to-mid{
+	padding-left:19%;
+	padding-right:19%;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.footer-fix{
+	font-size:1.4em;
+}

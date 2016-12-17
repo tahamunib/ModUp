@@ -1,0 +1,92 @@
+.table-head{
+	font-size:1.3em;
+}
+th{
+	font-size:1.2em;/*
+	padding:3%;*/
+	padding-bottom:3%;
+}
+td p{
+	font-size:1em;/*
+	padding-left:3%;
+	padding-right:3%;*/
+}
+
+.padding-default{
+	padding:2em;
+}
+.cust-h{
+	margin-bottom:1em;
+	line-height:1.5;
+}
+.cust-p{
+	margin-bottom:1.5em;
+	line-height:1.5;
+}
+.cust-radio-ans{
+	margin-bottom:1.5em;
+	line-height:1.5;
+	padding-left:3%;
+}
+.margin-left{
+	margin-left:2em;
+}
+.margin-top-more{
+	margin-top:4%;
+}
+.padding-left{
+	padding-left:3%;
+}
+.btn-default{
+	border-radius:50%;
+}
+
+.radio-check{
+	width:35px;
+}
+.radio-check span{
+	margin-left:-0.2em;
+}
+#main-content {
+    margin-left: 0px;
+}
+.offset-to-mid{
+	padding-left:4%;
+	padding-right:4%;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	padding:3%;
+}
+.search-form-control{
+    width: 500px;
+    background: white url('../img/icons/search-line-icon.png') no-repeat 3px;
+    padding-left: 24px;
+    margin-bottom: 2%;   
+	margin-right:5%; 
+	float:left;
+}
+.width-form-control{
+    width: 200px;   
+	margin-right:5%; 
+    margin-bottom: 2%;   
+	float:left;
+}
+
+.widthPrice-form-control{
+    width: 200px;     
+	float:left;
+}
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+
+.footer-fix{
+	font-size:1.4em;
+}
