@@ -25,6 +25,20 @@
                 $("#myModal2").modal();
             });
             
+
+            $('#frmSignup').submit(function (e) {
+                $.ajax({
+                    type: 'POST',
+                    action: '<%:Url.Action("Register","Account")%>',
+                    data: $('#frmSignup').serialize(),
+                    success: function () {
+                        alert('Registered !');
+                    }
+                });
+                e.preventDefault();
+            });
+
+
         });
     </script>
     
