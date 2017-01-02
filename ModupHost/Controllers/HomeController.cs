@@ -8,6 +8,9 @@ namespace ModupHost.Controllers
 {
     public class HomeController : Controller
     {
+        #if !DEBUG
+        [RequireHttps] //apply to this action only
+        #endif
         public ActionResult Index()
         {
             return View();

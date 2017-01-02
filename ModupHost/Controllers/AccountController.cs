@@ -73,14 +73,12 @@ namespace ModupHost.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(string formData)
+        //[ValidateAntiForgeryToken]
+        public async Task<ActionResult> Register(FormCollection formData)
         {
             if (ModelState.IsValid)
             {
                 
-                //var user = new ApplicationUser() { UserName = model.UserName };
-                //var result = await UserManager.CreateAsync(user, model.Password);
                 //if (result.Succeeded)
                 //{
                 //    await SignInAsync(user, isPersistent: false);

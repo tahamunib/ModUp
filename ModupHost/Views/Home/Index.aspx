@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>modup</title>
+    <title>Modup</title>
     
     <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css" />
     <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
@@ -27,12 +27,18 @@
             
 
             $('#frmSignup').submit(function (e) {
+                var form = $('#frmSignup').serialize();
+                console.log(form);
                 $.ajax({
                     type: 'POST',
-                    action: '<%:Url.Action("Register","Account")%>',
-                    data: $('#frmSignup').serialize(),
+                    url: '<%:Url.Action("Register","Account")%>',
+                    data:  form,
+                    dataType: 'json',
                     success: function () {
                         alert('Registered !');
+                    },
+                    error: function (e) {
+                        console.log('Error', e);
                     }
                 });
                 e.preventDefault();
@@ -708,43 +714,43 @@
 
                         <span id="sprytextfield2"><div class="form-group">
                             <label for="cPass"><span class="glyphicon glyphicon-eye-close"></span>First Name</label>
-                            <input type="text" class="form-control" id="fName" placeholder="Enter First name"/>
+                            <input name="fName" type="text" class="form-control" id="fName" placeholder="Enter First name"/>
                             
                         </div><span class="textfieldRequiredMsg">* This field is required</span></span>
                         <span id="sprytextfield3"><div class="form-group">
                             <label for="cPass"><span class="glyphicon glyphicon-eye-close"></span>Last Name</label>
-                            <input type="text" class="form-control" id="lName" placeholder="Enter Last Name"/>
+                            <input name="lName" type="text" class="form-control" id="lName" placeholder="Enter Last Name"/>
                             
                         </div><span class="textfieldRequiredMsg">* This field is required</span></span>
                         <span id="sprytextfield4"><div class="form-group">
                             <label for="email"><span class="glyphicon glyphicon-envelope"></span>Email</label>
-                            <input type="text" class="form-control" id="email" placeholder="Enter email"/>
+                            <input name="email" type="text" class="form-control" id="email" placeholder="Enter email"/>
                             
                         </div><span class="textfieldRequiredMsg">* This field is required</span><span class="textfieldInvalidFormatMsg">Invalid email address</span></span>
                         <span id="sprytextfield5"><div class="form-group">
 
                             <label for="usrnameSignUp"><span class="glyphicon glyphicon-user"></span>Username</label>
-                            <input type="text" class="form-control" id="uName" placeholder="Enter Username"/>
+                            <input name="uName" type="text" class="form-control" id="uName" placeholder="Enter Username"/>
                             
                         </div><span class="textfieldRequiredMsg">* This field is required</span></span>
                         <span id="sprypassword2"><div class="form-group">
                             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Password</label>
-                            <input type="password" class="form-control" id="regPsw" placeholder="Enter Password"/>
+                            <input name="regPsw" type="password" class="form-control" id="regPsw" placeholder="Enter Password"/>
                             
                         </div><span class="textfieldRequiredMsg">* This field is required</span><span class="passwordMinCharsMsg">* At least 5 characters</span></span>
                         <span id="spryconfirm1"><div class="form-group">
                             <label for="cPass"><span class="glyphicon glyphicon-eye-close"></span>Confirm Password</label>
 
-                           <input type="password" class="form-control" id="cnfrmRegPsw" placeholder="Re-Enter Password"/>
+                           <input name="cnfrmRegPsw" type="password" class="form-control" id="cnfrmRegPsw" placeholder="Re-Enter Password"/>
                         </div><span class="textfieldRequiredMsg">* This field is required</span><span class="confirmInvalidMsg">Password don't match.</span></span>
                         <span id="spryselect1"><div class="form-group">
                             <label for="cPass"><span class="glyphicon glyphicon-eye-close"></span>Account Type</label>
                            
-                            <select id="accType">
+                            <select name="accType" id="accType">
                               <option id="optPM" value="PM">Development Manager</option>
                               <option id="optRE" value="RA">Requirement Engineer</option>
                               <option id="optQA" value="QA">Quality Assurance Engineer</option>
-                              <option id="optDev" value="QA">Developer</option>
+                              <option id="optDev" value="Dev">Developer</option>
                               
                             </select> 
                         </div><span class="selectRequiredMsg">* Choose One</span></span>
