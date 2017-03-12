@@ -8,23 +8,22 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using ModupBLL.ModupModels;
 using ModupHost.Models;
+using ModupBLL;
 
 namespace ModupHost.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        RegisterModel user;
         public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
+            user = new RegisterModel();
         }
 
-        public AccountController(UserManager<ApplicationUser> userManager)
-        {
-            UserManager = userManager;
-        }
-
+        
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
         //
@@ -38,28 +37,28 @@ namespace ModupHost.Controllers
 
         //
         // POST: /Account/Login
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
-                if (user != null)
-                {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid username or password.");
-                }
-            }
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = await UserManager.FindAsync(model.UserName, model.Password);
+        //        if (user != null)
+        //        {
+        //            await SignInAsync(user, model.RememberMe);
+        //            return RedirectToLocal(returnUrl);
+        //        }
+        //        else
+        //        {
+        //            ModelState.AddModelError("", "Invalid username or password.");
+        //        }
+        //    }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+        //    // If we got this far, something failed, redisplay form
+        //    return View(model);
+        //}
 
         //
         // GET: /Account/Register
@@ -74,10 +73,25 @@ namespace ModupHost.Controllers
         [HttpPost]
         [AllowAnonymous]
         //[ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(FormCollection formData)
+        public ActionResult Register(FormCollection formData)
         {
             if (ModelState.IsValid)
             {
+                user.User.firstName = formData["fName"].ToString();
+                user.User.lastName = formData["lName"].ToString();
+                user.UserCredentials.email = formData["email"].ToString();
+                user.UserCredentials.username = formData["uName"].ToString();
+                user.UserCredentials.password = formData["regPsw"].ToString();
+                user.User.accountType = formData["accType"].ToString();
+
+                if (Users.AddUser(user))
+                {
+
+                }
+                else
+                {
+
+                }
                 
                 //if (result.Succeeded)
                 //{

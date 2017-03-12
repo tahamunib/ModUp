@@ -363,6 +363,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModupBLL\ModupBLL.csproj">
+      <Project>{10e01776-ff19-4739-b90e-6934e1b91c3f}</Project>
+      <Name>ModupBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModupDAL\ModupDAL.csproj">
+      <Project>{add16621-558c-4f30-af7f-88ef34e91275}</Project>
+      <Name>ModupDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

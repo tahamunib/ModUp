@@ -27,12 +27,12 @@
             
 
             $('#frmSignup').submit(function (e) {
-                var form = $('#frmSignup').serialize();
-                console.log(form);
+                var formData = $('#frmSignup').serialize();
+                console.log(formData);
                 $.ajax({
                     type: 'POST',
                     url: '<%:Url.Action("Register","Account")%>',
-                    data:  form,
+                    data:  formData,
                     dataType: 'json',
                     success: function () {
                         alert('Registered !');

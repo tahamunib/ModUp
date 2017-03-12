@@ -11,5 +11,12 @@ namespace ModupBLL.ModupModels
     {
         public tbUser User { get; set; }
         public tbUserCredential UserCredentials { get; set; }
+
+        public RegisterModel()
+        {
+            User = new tbUser();
+            UserCredentials = new tbUserCredential();
+        }
+        
     }
 }

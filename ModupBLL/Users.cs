@@ -11,7 +11,7 @@ namespace ModupBLL
 {
     public class Users
     {
-        private ModupEntities db = new ModupEntities();
+        private static ModupEntities db = new ModupEntities();
 
         public tbUser GetUser(string username)
         {
@@ -29,7 +29,7 @@ namespace ModupBLL
                 return false;
         }
 
-        public bool AddUser(RegisterModel user)
+        public static bool AddUser(RegisterModel user)
         {
             
             try
