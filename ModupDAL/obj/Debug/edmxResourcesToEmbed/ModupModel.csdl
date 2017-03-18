@@ -393,19 +393,11 @@
     <Property Name="accountType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tbClients" Relationship="Self.FK_tbClient_tbUser" FromRole="tbUser" ToRole="tbClient" />
     <NavigationProperty Name="tbPMs" Relationship="Self.FK_tbPM_tbUser" FromRole="tbUser" ToRole="tbPM" />
-    <NavigationProperty Name="tbUserCredential" Relationship="Self.FK_tbUserCredentials_tbUser" FromRole="tbUser" ToRole="tbUserCredentials" />
-  </EntityType>
-  <EntityType Name="tbUserCredential">
-    <Key>
-      <PropertyRef Name="userID" />
-    </Key>
-    <Property Name="userID" Type="Int32" Nullable="false" />
-    <Property Name="username" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="secretQ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="secretA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="tbUser" Relationship="Self.FK_tbUserCredentials_tbUser" FromRole="tbUserCredentials" ToRole="tbUser" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="secretQ" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="secretA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_tbAnswers_tbQuestions">
     <End Role="tbQuestions" Type="Self.tbQuestion" Multiplicity="0..1" />
@@ -803,18 +795,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tbUserCredentials_tbUser">
-    <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
-    <End Role="tbUserCredentials" Type="Self.tbUserCredential" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="tbUser">
-        <PropertyRef Name="userID" />
-      </Principal>
-      <Dependent Role="tbUserCredentials">
-        <PropertyRef Name="userID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="tbEvalQuestions">
     <End Role="tbEvaluation" Type="Self.tbEvaluation" Multiplicity="*" />
     <End Role="tbQuestions" Type="Self.tbQuestion" Multiplicity="*" />
@@ -850,7 +830,6 @@
     <EntitySet Name="tbSkills" EntityType="Self.tbSkill" />
     <EntitySet Name="tbSubModules" EntityType="Self.tbSubModule" />
     <EntitySet Name="tbUsers" EntityType="Self.tbUser" />
-    <EntitySet Name="tbUserCredentials" EntityType="Self.tbUserCredential" />
     <AssociationSet Name="FK_tbAnswers_tbQuestions" Association="Self.FK_tbAnswers_tbQuestions">
       <End Role="tbQuestions" EntitySet="tbQuestions" />
       <End Role="tbAnswers" EntitySet="tbAnswers" />
@@ -982,10 +961,6 @@
     <AssociationSet Name="FK_tbProjWorkroomFiles_tbProjWorkroom" Association="Self.FK_tbProjWorkroomFiles_tbProjWorkroom">
       <End Role="tbProjWorkroom" EntitySet="tbProjWorkrooms" />
       <End Role="tbProjWorkroomFiles" EntitySet="tbProjWorkroomFiles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tbUserCredentials_tbUser" Association="Self.FK_tbUserCredentials_tbUser">
-      <End Role="tbUser" EntitySet="tbUsers" />
-      <End Role="tbUserCredentials" EntitySet="tbUserCredentials" />
     </AssociationSet>
     <AssociationSet Name="tbEvalQuestions" Association="Self.tbEvalQuestions">
       <End Role="tbEvaluation" EntitySet="tbEvaluations" />

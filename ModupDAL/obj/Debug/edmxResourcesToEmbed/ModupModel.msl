@@ -353,17 +353,13 @@
           <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
           <ScalarProperty Name="accountType" ColumnName="accountType" />
         </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tbUserCredentials">
-      <EntityTypeMapping TypeName="ModupModel.tbUserCredential">
         <MappingFragment StoreEntitySet="tbUserCredentials">
-          <ScalarProperty Name="userID" ColumnName="userID" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="secretQ" ColumnName="secretQ" />
           <ScalarProperty Name="secretA" ColumnName="secretA" />
+          <ScalarProperty Name="secretQ" ColumnName="secretQ" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

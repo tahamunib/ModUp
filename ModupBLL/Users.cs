@@ -16,14 +16,14 @@ namespace ModupBLL
         public tbUser GetUser(string username)
         {
             if (isUserExist(username))
-                return db.tbUsers.Where(x => x.tbUserCredential.username.Equals(username)).Single();
+                return db.tbUsers.Where(x => x.username.Equals(username)).Single();
             else
                 return null;
         }
 
         public bool isUserExist(string username)
         {
-            if (db.tbUsers.Where(x => x.tbUserCredential.username.Equals(username)).Count() > 0)
+            if (db.tbUsers.Where(x => x.username.Equals(username)).Count() > 0)
                 return true;
             else
                 return false;
@@ -34,9 +34,9 @@ namespace ModupBLL
             
             try
             {
-                user.UserCredentials.password = ModupAuthorization.Hashing.HashUsernamePassword(user.UserCredentials.username, user.UserCredentials.password);
+                user.User.password = ModupAuthorization.Hashing.HashUsernamePassword(user.User.username, user.User.password);
                 db.tbUsers.Add(user.User);
-                db.tbUserCredentials.Add(user.UserCredentials);
+                //db.tbUserCredentials.Add(user.UserCredentials);
                 db.SaveChanges();
                 return true;
             }

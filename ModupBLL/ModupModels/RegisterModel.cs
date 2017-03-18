@@ -10,12 +10,12 @@ namespace ModupBLL.ModupModels
     public class RegisterModel
     {
         public tbUser User { get; set; }
-        public tbUserCredential UserCredentials { get; set; }
+        
 
         public RegisterModel()
         {
             User = new tbUser();
-            UserCredentials = new tbUserCredential();
+            
         }
         
     }

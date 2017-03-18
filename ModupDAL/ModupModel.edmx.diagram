@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d5c81e0693244e9e9941c2cbd4313ecc" Name="Diagram1">
+      <Diagram DiagramId="d5c81e0693244e9e9941c2cbd4313ecc" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="ModupModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModupModel.tbAnswer" Width="1.5" PointX="12" PointY="28.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ModupModel.tbAwardedModule" Width="1.5" PointX="9.75" PointY="31.875" IsExpanded="true" />
@@ -35,7 +35,6 @@
         <EntityTypeShape EntityType="ModupModel.tbSkill" Width="1.5" PointX="7.5" PointY="38.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ModupModel.tbSubModule" Width="1.5" PointX="9.75" PointY="42.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ModupModel.tbUser" Width="1.5" PointX="0.75" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModupModel.tbUserCredential" Width="1.5" PointX="3" PointY="39.75" IsExpanded="true" />
         <AssociationConnector Association="ModupModel.FK_tbAnswers_tbQuestions" ManuallyRouted="false" />
         <AssociationConnector Association="ModupModel.FK_tbAwardedModules_tbDeveloper" ManuallyRouted="false" />
         <AssociationConnector Association="ModupModel.FK_tbAwardedModules_tbModules" ManuallyRouted="false" />
@@ -69,7 +68,6 @@
         <AssociationConnector Association="ModupModel.FK_tbProjProposals_tbProject" ManuallyRouted="false" />
         <AssociationConnector Association="ModupModel.FK_tbProjProposals_tbRequirementEngineer" ManuallyRouted="false" />
         <AssociationConnector Association="ModupModel.FK_tbProjWorkroomFiles_tbProjWorkroom" ManuallyRouted="false" />
-        <AssociationConnector Association="ModupModel.FK_tbUserCredentials_tbUser" ManuallyRouted="false" />
         <AssociationConnector Association="ModupModel.tbEvalQuestions" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

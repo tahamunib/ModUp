@@ -30,9 +30,13 @@ namespace ModupDAL
         public string postalCode { get; set; }
         public string contactNumber { get; set; }
         public string accountType { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string email { get; set; }
+        public string secretQ { get; set; }
+        public string secretA { get; set; }
     
         public virtual ICollection<tbClient> tbClients { get; set; }
         public virtual ICollection<tbPM> tbPMs { get; set; }
-        public virtual tbUserCredential tbUserCredential { get; set; }
     }
 }

@@ -342,7 +342,7 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
     </Key>
     <Property Name="userID" Type="int" Nullable="false" />
     <Property Name="username" Type="nvarchar" MaxLength="15" Nullable="false" />
-    <Property Name="password" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="secretQ" Type="nvarchar(max)" Nullable="false" />
     <Property Name="secretA" Type="nvarchar" MaxLength="50" Nullable="false" />

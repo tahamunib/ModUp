@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ModupModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ModupModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -347,7 +347,7 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           </Key>
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="username" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="password" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="secretQ" Type="nvarchar(max)" Nullable="false" />
           <Property Name="secretA" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -967,8 +967,7 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
             <End Role="tbUserCredentials" EntitySet="tbUserCredentials" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ModupModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1365,19 +1364,11 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <Property Name="accountType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tbClients" Relationship="Self.FK_tbClient_tbUser" FromRole="tbUser" ToRole="tbClient" />
           <NavigationProperty Name="tbPMs" Relationship="Self.FK_tbPM_tbUser" FromRole="tbUser" ToRole="tbPM" />
-          <NavigationProperty Name="tbUserCredential" Relationship="Self.FK_tbUserCredentials_tbUser" FromRole="tbUser" ToRole="tbUserCredentials" />
-        </EntityType>
-        <EntityType Name="tbUserCredential">
-          <Key>
-            <PropertyRef Name="userID" />
-          </Key>
-          <Property Name="userID" Type="Int32" Nullable="false" />
-          <Property Name="username" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="secretQ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="secretA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tbUser" Relationship="Self.FK_tbUserCredentials_tbUser" FromRole="tbUserCredentials" ToRole="tbUser" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="secretQ" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="secretA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_tbAnswers_tbQuestions">
           <End Role="tbQuestions" Type="Self.tbQuestion" Multiplicity="0..1" />
@@ -1775,18 +1766,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tbUserCredentials_tbUser">
-          <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
-          <End Role="tbUserCredentials" Type="Self.tbUserCredential" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="tbUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="tbUserCredentials">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="tbEvalQuestions">
           <End Role="tbEvaluation" Type="Self.tbEvaluation" Multiplicity="*" />
           <End Role="tbQuestions" Type="Self.tbQuestion" Multiplicity="*" />
@@ -1822,7 +1801,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <EntitySet Name="tbSkills" EntityType="Self.tbSkill" />
           <EntitySet Name="tbSubModules" EntityType="Self.tbSubModule" />
           <EntitySet Name="tbUsers" EntityType="Self.tbUser" />
-          <EntitySet Name="tbUserCredentials" EntityType="Self.tbUserCredential" />
           <AssociationSet Name="FK_tbAnswers_tbQuestions" Association="Self.FK_tbAnswers_tbQuestions">
             <End Role="tbQuestions" EntitySet="tbQuestions" />
             <End Role="tbAnswers" EntitySet="tbAnswers" />
@@ -1954,10 +1932,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <AssociationSet Name="FK_tbProjWorkroomFiles_tbProjWorkroom" Association="Self.FK_tbProjWorkroomFiles_tbProjWorkroom">
             <End Role="tbProjWorkroom" EntitySet="tbProjWorkrooms" />
             <End Role="tbProjWorkroomFiles" EntitySet="tbProjWorkroomFiles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbUserCredentials_tbUser" Association="Self.FK_tbUserCredentials_tbUser">
-            <End Role="tbUser" EntitySet="tbUsers" />
-            <End Role="tbUserCredentials" EntitySet="tbUserCredentials" />
           </AssociationSet>
           <AssociationSet Name="tbEvalQuestions" Association="Self.tbEvalQuestions">
             <End Role="tbEvaluation" EntitySet="tbEvaluations" />
@@ -2322,17 +2296,13 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
                 <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
                 <ScalarProperty Name="accountType" ColumnName="accountType" />
               </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbUserCredentials">
-            <EntityTypeMapping TypeName="ModupModel.tbUserCredential">
               <MappingFragment StoreEntitySet="tbUserCredentials">
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="secretQ" ColumnName="secretQ" />
                 <ScalarProperty Name="secretA" ColumnName="secretA" />
+                <ScalarProperty Name="secretQ" ColumnName="secretQ" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

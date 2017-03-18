@@ -79,9 +79,9 @@ namespace ModupHost.Controllers
             {
                 user.User.firstName = formData["fName"].ToString();
                 user.User.lastName = formData["lName"].ToString();
-                user.UserCredentials.email = formData["email"].ToString();
-                user.UserCredentials.username = formData["uName"].ToString();
-                user.UserCredentials.password = formData["regPsw"].ToString();
+                user.User.email = formData["email"].ToString();
+                user.User.username = formData["uName"].ToString();
+                user.User.password = formData["regPsw"].ToString();
                 user.User.accountType = formData["accType"].ToString();
 
                 if (Users.AddUser(user))

@@ -156,9 +156,6 @@
     <Compile Include="tbUser.cs">
       <DependentUpon>ModupModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="tbUserCredential.cs">
-      <DependentUpon>ModupModel.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ModupModel.edmx">
