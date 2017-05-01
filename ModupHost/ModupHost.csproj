@@ -368,6 +368,10 @@
       <Project>{10e01776-ff19-4739-b90e-6934e1b91c3f}</Project>
       <Name>ModupBLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModupCommon\ModupCommon.csproj">
+      <Project>{4e3bb0e5-b66b-4b43-8379-06dca3f83875}</Project>
+      <Name>ModupCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ModupDAL\ModupDAL.csproj">
       <Project>{add16621-558c-4f30-af7f-88ef34e91275}</Project>
       <Name>ModupDAL</Name>
@@ -391,7 +395,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59467</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59467/</IISUrl>
+          <IISUrl>http://localhost:59467</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

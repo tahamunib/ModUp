@@ -55,5 +55,7 @@ namespace ModupDAL
         public virtual DbSet<tbSkill> tbSkills { get; set; }
         public virtual DbSet<tbSubModule> tbSubModules { get; set; }
         public virtual DbSet<tbUser> tbUsers { get; set; }
+        public virtual DbSet<tbModupEnum> tbModupEnums { get; set; }
+        public virtual DbSet<tbModupEnumValue> tbModupEnumValues { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace ModupAuthorization
             return BCrypt.Net.BCrypt.GenerateSalt(workFactor);
         }
 
-        public static string HashUsernamePassword(string username,string password)
+        public static string HashUsernamePassword(string username,byte[] password)
         {
             return BCrypt.Net.BCrypt.HashPassword(username+password, GetRandomSalt());
         }

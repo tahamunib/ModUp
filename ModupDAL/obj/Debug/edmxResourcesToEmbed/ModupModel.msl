@@ -339,19 +339,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="tbEvalQuestions" TypeName="ModupModel.tbEvalQuestions" StoreEntitySet="tbEvalQuestions">
+      <EndProperty Name="tbEvaluation">
+        <ScalarProperty Name="evalID" ColumnName="evalID" />
+      </EndProperty>
+      <EndProperty Name="tbQuestions">
+        <ScalarProperty Name="qID" ColumnName="qID" />
+      </EndProperty>
+    </AssociationSetMapping>
     <EntitySetMapping Name="tbUsers">
       <EntityTypeMapping TypeName="ModupModel.tbUser">
         <MappingFragment StoreEntitySet="tbUser">
-          <ScalarProperty Name="userID" ColumnName="userID" />
-          <ScalarProperty Name="firstName" ColumnName="firstName" />
-          <ScalarProperty Name="lastName" ColumnName="lastName" />
-          <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="country" ColumnName="country" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
-          <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
           <ScalarProperty Name="accountType" ColumnName="accountType" />
+          <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
         </MappingFragment>
         <MappingFragment StoreEntitySet="tbUserCredentials">
           <ScalarProperty Name="secretA" ColumnName="secretA" />
@@ -363,13 +373,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="tbEvalQuestions" TypeName="ModupModel.tbEvalQuestions" StoreEntitySet="tbEvalQuestions">
-      <EndProperty Name="tbEvaluation">
-        <ScalarProperty Name="evalID" ColumnName="evalID" />
-      </EndProperty>
-      <EndProperty Name="tbQuestions">
-        <ScalarProperty Name="qID" ColumnName="qID" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="tbModupEnums">
+      <EntityTypeMapping TypeName="ModupModel.tbModupEnum">
+        <MappingFragment StoreEntitySet="tbModupEnum">
+          <ScalarProperty Name="enumType" ColumnName="enumType" />
+          <ScalarProperty Name="enumID" ColumnName="enumID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbModupEnumValues">
+      <EntityTypeMapping TypeName="ModupModel.tbModupEnumValue">
+        <MappingFragment StoreEntitySet="tbModupEnumValues">
+          <ScalarProperty Name="enumValue" ColumnName="enumValue" />
+          <ScalarProperty Name="enumType" ColumnName="enumType" />
+          <ScalarProperty Name="enumValueID" ColumnName="enumValueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

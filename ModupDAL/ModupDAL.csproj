@@ -114,6 +114,12 @@
     <Compile Include="tbModuleWorkroom.cs">
       <DependentUpon>ModupModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="tbModupEnum.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbModupEnumValue.cs">
+      <DependentUpon>ModupModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbModWorkroomFile.cs">
       <DependentUpon>ModupModel.tt</DependentUpon>
     </Compile>

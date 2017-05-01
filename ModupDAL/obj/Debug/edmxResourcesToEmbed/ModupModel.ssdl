@@ -184,6 +184,21 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
     <Property Name="wrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="modID" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="tbModupEnum">
+    <Key>
+      <PropertyRef Name="enumID" />
+    </Key>
+    <Property Name="enumID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="enumType" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbModupEnumValues">
+    <Key>
+      <PropertyRef Name="enumValueID" />
+    </Key>
+    <Property Name="enumValueID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="enumType" Type="varchar(max)" Nullable="false" />
+    <Property Name="enumValue" Type="varchar(max)" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbModWorkroomFiles">
     <Key>
       <PropertyRef Name="fileID" />
@@ -335,6 +350,8 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
     <Property Name="postalCode" Type="nvarchar" MaxLength="50" />
     <Property Name="contactNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="accountType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="userType" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tbUserCredentials">
     <Key>
@@ -342,7 +359,7 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
     </Key>
     <Property Name="userID" Type="int" Nullable="false" />
     <Property Name="username" Type="nvarchar" MaxLength="15" Nullable="false" />
-    <Property Name="password" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="password" Type="binary" MaxLength="1000" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="secretQ" Type="nvarchar(max)" Nullable="false" />
     <Property Name="secretA" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -796,6 +813,8 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
     <EntitySet Name="tbModRequests" EntityType="Self.tbModRequests" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbModules" EntityType="Self.tbModules" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbModuleWorkroom" EntityType="Self.tbModuleWorkroom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModupEnum" EntityType="Self.tbModupEnum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModupEnumValues" EntityType="Self.tbModupEnumValues" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbModWorkroomFiles" EntityType="Self.tbModWorkroomFiles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPM" EntityType="Self.tbPM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPortfolio" EntityType="Self.tbPortfolio" Schema="dbo" store:Type="Tables" />

@@ -55,10 +55,7 @@ F:\In progress\Modup\Modupv1\Modup\ModupHost\obj\Debug\ModupHost.dll
 F:\In progress\Modup\Modupv1\Modup\ModupHost\obj\Debug\ModupHost.pdb
 F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\ModupBLL.dll
 F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\ModupDAL.dll
-F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\ModupAuthorization.dll
-F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\BCrypt.Net.dll
 F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\ModupBLL.pdb
 F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\ModupDAL.pdb
-F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\ModupAuthorization.pdb
-F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\BCrypt.Net.pdb
-F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\BCrypt.Net.xml
+F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\ModupCommon.dll
+F:\In progress\Modup\Modupv1\Modup\ModupHost\bin\ModupCommon.pdb

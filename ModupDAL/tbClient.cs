@@ -33,11 +33,11 @@ namespace ModupDAL
         public string actionCont { get; set; }
         public Nullable<int> completedTasks { get; set; }
     
-        public virtual tbUser tbUser { get; set; }
         public virtual ICollection<tbDeveloper> tbDevelopers { get; set; }
         public virtual ICollection<tbEducation> tbEducations { get; set; }
         public virtual ICollection<tbExperience> tbExperiences { get; set; }
         public virtual ICollection<tbQualityAssurance> tbQualityAssurances { get; set; }
         public virtual ICollection<tbRequirementEngineer> tbRequirementEngineers { get; set; }
+        public virtual tbUser tbUser { get; set; }
     }
 }

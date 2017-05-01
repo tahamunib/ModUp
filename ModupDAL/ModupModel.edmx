@@ -189,6 +189,21 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <Property Name="wrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="modID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="tbModupEnum">
+          <Key>
+            <PropertyRef Name="enumID" />
+          </Key>
+          <Property Name="enumID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="enumType" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbModupEnumValues">
+          <Key>
+            <PropertyRef Name="enumValueID" />
+          </Key>
+          <Property Name="enumValueID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="enumType" Type="varchar(max)" Nullable="false" />
+          <Property Name="enumValue" Type="varchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbModWorkroomFiles">
           <Key>
             <PropertyRef Name="fileID" />
@@ -340,6 +355,8 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <Property Name="postalCode" Type="nvarchar" MaxLength="50" />
           <Property Name="contactNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="accountType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="createdOn" Type="datetime" />
+          <Property Name="userType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbUserCredentials">
           <Key>
@@ -347,7 +364,7 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           </Key>
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="username" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="password" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="password" Type="binary" MaxLength="1000" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="secretQ" Type="nvarchar(max)" Nullable="false" />
           <Property Name="secretA" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -801,6 +818,8 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <EntitySet Name="tbModRequests" EntityType="Self.tbModRequests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbModules" EntityType="Self.tbModules" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbModuleWorkroom" EntityType="Self.tbModuleWorkroom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbModupEnum" EntityType="Self.tbModupEnum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbModupEnumValues" EntityType="Self.tbModupEnumValues" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbModWorkroomFiles" EntityType="Self.tbModWorkroomFiles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPM" EntityType="Self.tbPM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPortfolio" EntityType="Self.tbPortfolio" Schema="dbo" store:Type="Tables" />
@@ -1042,12 +1061,12 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <Property Name="isProfileComplete" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="actionCont" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="completedTasks" Type="Int32" />
-          <NavigationProperty Name="tbUser" Relationship="Self.FK_tbClient_tbUser" FromRole="tbClient" ToRole="tbUser" />
           <NavigationProperty Name="tbDevelopers" Relationship="Self.FK_tbDeveloper_tbClient" FromRole="tbClient" ToRole="tbDeveloper" />
           <NavigationProperty Name="tbEducations" Relationship="Self.FK_tbEducation_tbEducation" FromRole="tbClient" ToRole="tbEducation" />
           <NavigationProperty Name="tbExperiences" Relationship="Self.FK_tbExperiences_tbClient" FromRole="tbClient" ToRole="tbExperiences" />
           <NavigationProperty Name="tbQualityAssurances" Relationship="Self.FK_tbQualityAssurance_tbClient" FromRole="tbClient" ToRole="tbQualityAssurance" />
           <NavigationProperty Name="tbRequirementEngineers" Relationship="Self.FK_tbRequirementEngineer_tbClient" FromRole="tbClient" ToRole="tbRequirementEngineer" />
+          <NavigationProperty Name="tbUser" Relationship="ModupModel.FK_tbClient_tbUser" FromRole="tbClient" ToRole="tbUser" />
         </EntityType>
         <EntityType Name="tbDeveloper">
           <Key>
@@ -1205,8 +1224,8 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <Property Name="userID" Type="Int32" Nullable="false" />
           <Property Name="totalSpending" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="awardedProj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tbUser" Relationship="Self.FK_tbPM_tbUser" FromRole="tbPM" ToRole="tbUser" />
           <NavigationProperty Name="tbProjects" Relationship="Self.FK_tbProject_tbPM" FromRole="tbPM" ToRole="tbProject" />
+          <NavigationProperty Name="tbUser" Relationship="ModupModel.FK_tbPM_tbUser" FromRole="tbPM" ToRole="tbUser" />
         </EntityType>
         <EntityType Name="tbPortfolio">
           <Key>
@@ -1348,28 +1367,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <Property Name="filename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tbModule" Relationship="Self.FK_tbSubModules_tbModules" FromRole="tbSubModules" ToRole="tbModules" />
         </EntityType>
-        <EntityType Name="tbUser">
-          <Key>
-            <PropertyRef Name="userID" />
-          </Key>
-          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="postalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="contactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="accountType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tbClients" Relationship="Self.FK_tbClient_tbUser" FromRole="tbUser" ToRole="tbClient" />
-          <NavigationProperty Name="tbPMs" Relationship="Self.FK_tbPM_tbUser" FromRole="tbUser" ToRole="tbPM" />
-          <Property Name="username" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="secretQ" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="secretA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <Association Name="FK_tbAnswers_tbQuestions">
           <End Role="tbQuestions" Type="Self.tbQuestion" Multiplicity="0..1" />
           <End Role="tbAnswers" Type="Self.tbAnswer" Multiplicity="*" />
@@ -1487,18 +1484,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
             </Principal>
             <Dependent Role="tbCheckpointReqs">
               <PropertyRef Name="chkID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tbClient_tbUser">
-          <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
-          <End Role="tbClient" Type="Self.tbClient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="tbClient">
-              <PropertyRef Name="userID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1706,18 +1691,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tbPM_tbUser">
-          <End Role="tbUser" Type="Self.tbUser" Multiplicity="1" />
-          <End Role="tbPM" Type="Self.tbPM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="tbPM">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tbProject_tbPM">
           <End Role="tbPM" Type="Self.tbPM" Multiplicity="1" />
           <End Role="tbProject" Type="Self.tbProject" Multiplicity="*" />
@@ -1800,7 +1773,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <EntitySet Name="tbRequirementEngineers" EntityType="Self.tbRequirementEngineer" />
           <EntitySet Name="tbSkills" EntityType="Self.tbSkill" />
           <EntitySet Name="tbSubModules" EntityType="Self.tbSubModule" />
-          <EntitySet Name="tbUsers" EntityType="Self.tbUser" />
           <AssociationSet Name="FK_tbAnswers_tbQuestions" Association="Self.FK_tbAnswers_tbQuestions">
             <End Role="tbQuestions" EntitySet="tbQuestions" />
             <End Role="tbAnswers" EntitySet="tbAnswers" />
@@ -1840,10 +1812,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
           <AssociationSet Name="FK_tbCheckpointReqs_tbModCheckpoints" Association="Self.FK_tbCheckpointReqs_tbModCheckpoints">
             <End Role="tbModCheckpoints" EntitySet="tbModCheckpoints" />
             <End Role="tbCheckpointReqs" EntitySet="tbCheckpointReqs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbClient_tbUser" Association="Self.FK_tbClient_tbUser">
-            <End Role="tbUser" EntitySet="tbUsers" />
-            <End Role="tbClient" EntitySet="tbClients" />
           </AssociationSet>
           <AssociationSet Name="FK_tbDeveloper_tbClient" Association="Self.FK_tbDeveloper_tbClient">
             <End Role="tbClient" EntitySet="tbClients" />
@@ -1913,10 +1881,6 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
             <End Role="tbModuleWorkroom" EntitySet="tbModuleWorkrooms" />
             <End Role="tbModWorkroomFiles" EntitySet="tbModWorkroomFiles" />
           </AssociationSet>
-          <AssociationSet Name="FK_tbPM_tbUser" Association="Self.FK_tbPM_tbUser">
-            <End Role="tbUser" EntitySet="tbUsers" />
-            <End Role="tbPM" EntitySet="tbPMs" />
-          </AssociationSet>
           <AssociationSet Name="FK_tbProject_tbPM" Association="Self.FK_tbProject_tbPM">
             <End Role="tbPM" EntitySet="tbPMs" />
             <End Role="tbProject" EntitySet="tbProjects" />
@@ -1937,7 +1901,81 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
             <End Role="tbEvaluation" EntitySet="tbEvaluations" />
             <End Role="tbQuestions" EntitySet="tbQuestions" />
           </AssociationSet>
+          <EntitySet Name="tbUsers" EntityType="ModupModel.tbUser" />
+          <AssociationSet Name="FK_tbClient_tbUser" Association="ModupModel.FK_tbClient_tbUser">
+            <End Role="tbUser" EntitySet="tbUsers" />
+            <End Role="tbClient" EntitySet="tbClients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPM_tbUser" Association="ModupModel.FK_tbPM_tbUser">
+            <End Role="tbUser" EntitySet="tbUsers" />
+            <End Role="tbPM" EntitySet="tbPMs" />
+          </AssociationSet>
+          <EntitySet Name="tbModupEnums" EntityType="ModupModel.tbModupEnum" />
+          <EntitySet Name="tbModupEnumValues" EntityType="ModupModel.tbModupEnumValue" />
         </EntityContainer>
+        <EntityType Name="tbUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="postalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="accountType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbClients" Relationship="ModupModel.FK_tbClient_tbUser" FromRole="tbUser" ToRole="tbClient" />
+          <NavigationProperty Name="tbPMs" Relationship="ModupModel.FK_tbPM_tbUser" FromRole="tbUser" ToRole="tbPM" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="Binary" Nullable="false" MaxLength="1000" FixedLength="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="secretQ" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="secretA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdOn" Type="DateTime" Precision="3" />
+          <Property Name="userType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbClient_tbUser">
+          <End Type="ModupModel.tbUser" Role="tbUser" Multiplicity="1" />
+          <End Type="ModupModel.tbClient" Role="tbClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tbClient">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPM_tbUser">
+          <End Type="ModupModel.tbUser" Role="tbUser" Multiplicity="1" />
+          <End Type="ModupModel.tbPM" Role="tbPM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tbPM">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbModupEnum">
+          <Key>
+            <PropertyRef Name="enumID" />
+          </Key>
+          <Property Name="enumID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="enumType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbModupEnumValue">
+          <Key>
+            <PropertyRef Name="enumValueID" />
+          </Key>
+          <Property Name="enumValueID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="enumType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="enumValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2282,19 +2320,29 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="tbEvalQuestions" TypeName="ModupModel.tbEvalQuestions" StoreEntitySet="tbEvalQuestions">
+            <EndProperty Name="tbEvaluation">
+              <ScalarProperty Name="evalID" ColumnName="evalID" />
+            </EndProperty>
+            <EndProperty Name="tbQuestions">
+              <ScalarProperty Name="qID" ColumnName="qID" />
+            </EndProperty>
+          </AssociationSetMapping>
           <EntitySetMapping Name="tbUsers">
             <EntityTypeMapping TypeName="ModupModel.tbUser">
               <MappingFragment StoreEntitySet="tbUser">
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="firstName" ColumnName="firstName" />
-                <ScalarProperty Name="lastName" ColumnName="lastName" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="postalCode" ColumnName="postalCode" />
-                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
                 <ScalarProperty Name="accountType" ColumnName="accountType" />
+                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
               </MappingFragment>
               <MappingFragment StoreEntitySet="tbUserCredentials">
                 <ScalarProperty Name="secretA" ColumnName="secretA" />
@@ -2306,14 +2354,23 @@ warning 6002: The table/view 'dbModup.dbo.tbEvalQuestions' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="tbEvalQuestions" TypeName="ModupModel.tbEvalQuestions" StoreEntitySet="tbEvalQuestions">
-            <EndProperty Name="tbEvaluation">
-              <ScalarProperty Name="evalID" ColumnName="evalID" />
-            </EndProperty>
-            <EndProperty Name="tbQuestions">
-              <ScalarProperty Name="qID" ColumnName="qID" />
-            </EndProperty>
-          </AssociationSetMapping>
+          <EntitySetMapping Name="tbModupEnums">
+            <EntityTypeMapping TypeName="ModupModel.tbModupEnum">
+              <MappingFragment StoreEntitySet="tbModupEnum">
+                <ScalarProperty Name="enumType" ColumnName="enumType" />
+                <ScalarProperty Name="enumID" ColumnName="enumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbModupEnumValues">
+            <EntityTypeMapping TypeName="ModupModel.tbModupEnumValue">
+              <MappingFragment StoreEntitySet="tbModupEnumValues">
+                <ScalarProperty Name="enumValue" ColumnName="enumValue" />
+                <ScalarProperty Name="enumType" ColumnName="enumType" />
+                <ScalarProperty Name="enumValueID" ColumnName="enumValueID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

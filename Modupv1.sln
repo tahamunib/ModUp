@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModupDAL", "ModupDAL\ModupD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModupHost", "ModupHost\ModupHost.csproj", "{D902D004-4FCC-49BA-A99D-788CF9FA9857}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModupCommon", "ModupCommon\ModupCommon.csproj", "{4E3BB0E5-B66B-4B43-8379-06DCA3F83875}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{D902D004-4FCC-49BA-A99D-788CF9FA9857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D902D004-4FCC-49BA-A99D-788CF9FA9857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D902D004-4FCC-49BA-A99D-788CF9FA9857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3BB0E5-B66B-4B43-8379-06DCA3F83875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3BB0E5-B66B-4B43-8379-06DCA3F83875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3BB0E5-B66B-4B43-8379-06DCA3F83875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3BB0E5-B66B-4B43-8379-06DCA3F83875}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ModupDAL;
 using ModupBLL.ModupModels;
 using ModupAuthorization;
+using ModupCommon;
 
 namespace ModupBLL
 {
@@ -34,7 +35,7 @@ namespace ModupBLL
             
             try
             {
-                user.User.password = ModupAuthorization.Hashing.HashUsernamePassword(user.User.username, user.User.password);
+                //user.User.password = Helper.GetBytes(ModupAuthorization.Hashing.HashUsernamePassword(user.User.username, user.User.password));
                 db.tbUsers.Add(user.User);
                 //db.tbUserCredentials.Add(user.UserCredentials);
                 db.SaveChanges();

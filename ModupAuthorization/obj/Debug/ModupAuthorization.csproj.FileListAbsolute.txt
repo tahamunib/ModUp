@@ -17,6 +17,5 @@ F:\In progress\Modup\Modupv1\Modup\ModupAuthorization\bin\Debug\ModupAuthorizati
 F:\In progress\Modup\Modupv1\Modup\ModupAuthorization\bin\Debug\BCrypt.Net.dll
 F:\In progress\Modup\Modupv1\Modup\ModupAuthorization\bin\Debug\BCrypt.Net.pdb
 F:\In progress\Modup\Modupv1\Modup\ModupAuthorization\bin\Debug\BCrypt.Net.xml
-F:\In progress\Modup\Modupv1\Modup\ModupAuthorization\obj\Debug\ModupAuthorization.csprojResolveAssemblyReference.cache
 F:\In progress\Modup\Modupv1\Modup\ModupAuthorization\obj\Debug\ModupAuthorization.dll
 F:\In progress\Modup\Modupv1\Modup\ModupAuthorization\obj\Debug\ModupAuthorization.pdb

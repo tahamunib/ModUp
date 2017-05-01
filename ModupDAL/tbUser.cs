@@ -31,10 +31,12 @@ namespace ModupDAL
         public string contactNumber { get; set; }
         public string accountType { get; set; }
         public string username { get; set; }
-        public string password { get; set; }
+        public byte[] password { get; set; }
         public string email { get; set; }
         public string secretQ { get; set; }
         public string secretA { get; set; }
+        public Nullable<System.DateTime> createdOn { get; set; }
+        public int userType { get; set; }
     
         public virtual ICollection<tbClient> tbClients { get; set; }
         public virtual ICollection<tbPM> tbPMs { get; set; }

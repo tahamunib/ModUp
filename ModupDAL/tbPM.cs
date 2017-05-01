@@ -24,7 +24,7 @@ namespace ModupDAL
         public string totalSpending { get; set; }
         public string awardedProj { get; set; }
     
-        public virtual tbUser tbUser { get; set; }
         public virtual ICollection<tbProject> tbProjects { get; set; }
+        public virtual tbUser tbUser { get; set; }
     }
 }

@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using ModupBLL.ModupModels;
 using ModupHost.Models;
 using ModupBLL;
+using ModupCommon;
 
 namespace ModupHost.Controllers
 {
@@ -81,9 +82,9 @@ namespace ModupHost.Controllers
                 user.User.lastName = formData["lName"].ToString();
                 user.User.email = formData["email"].ToString();
                 user.User.username = formData["uName"].ToString();
-                user.User.password = formData["regPsw"].ToString();
+                user.User.password = Helper.GetBytes(formData["regPsw"].ToString());
                 user.User.accountType = formData["accType"].ToString();
-
+                user.User.createdOn = DateTime.Now;
                 if (Users.AddUser(user))
                 {
 
